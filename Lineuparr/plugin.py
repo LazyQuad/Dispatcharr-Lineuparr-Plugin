@@ -18,7 +18,8 @@ from glob import glob
 
 from django.db import transaction
 
-from .fuzzy_matcher import FuzzyMatcher, has_upgrade_quality, detect_category_country, country_codes_in_text
+from .fuzzy_matcher import (FuzzyMatcher, has_upgrade_quality, detect_category_country,
+                            detect_name_country_prefix, country_codes_in_text)
 from .aliases import CHANNEL_ALIASES, COUNTRY_ALIASES
 from .progress_status import save_progress_atomic, load_progress, build_status_message
 
@@ -620,6 +621,8 @@ class Plugin:
         if "categories" not in data:
             raise ValueError(f"Invalid lineup file: missing 'categories' key")
 
+        self._rewrite_country_prefixes(data, logger)
+
         # Apply category detail level transformation
         data = self._apply_category_detail(data, detail)
 
@@ -627,6 +630,60 @@ class Plugin:
         self._lineup_cache_file = cache_key
         logger.info(f"{LOG_PREFIX} Loaded lineup: {data.get('package', 'Unknown')} ({sum(len(v) for v in data['categories'].values())} channels, {len(data['categories'])} categories, detail={detail})")
         return data
+
+    @staticmethod
+    def _rewrite_country_prefixes(data, logger):
+        """Turn a "CC_" channel-name prefix into the channel's own country.
+
+        "UK_CNN" inside a US lineup becomes name "CNN" with country UK. Done here,
+        once, before anything else sees the lineup: the name is used for channel
+        creation, for matching, for reports and for EPG matching, so a prefix left
+        in place would have to be stripped correctly in several unrelated places.
+
+        Mutates data in place. Runs before _apply_category_detail so every detail
+        level sees the rewritten entries.
+        """
+        rewritten = 0
+        for channels in data.get("categories", {}).values():
+            if not isinstance(channels, list):
+                continue
+            for entry in channels:
+                if not isinstance(entry, dict):
+                    continue
+                country, stripped = detect_name_country_prefix(entry.get("name"))
+                if not country:
+                    continue
+                entry["name"] = stripped
+                entry["_country"] = country
+                rewritten += 1
+
+        if rewritten:
+            logger.info(
+                f"{LOG_PREFIX} {rewritten} lineup "
+                f"{'channel carries' if rewritten == 1 else 'channels carry'} a "
+                f"country prefix in the name"
+            )
+
+    @staticmethod
+    def _resolve_entry_country(entry, category_cc, logger=None):
+        """Country code to enforce for ONE channel.
+
+        Most specific first: the channel's own country (from its name prefix),
+        then the category's, then the lineup filename's, which category_cc already
+        carries. Mirrors _resolve_category_country one level down.
+
+        The override is logged for the same reason the category-level one is: a
+        channel that does not match is otherwise guesswork.
+        """
+        entry_cc = entry.get("_country") if isinstance(entry, dict) else None
+        if not entry_cc:
+            return category_cc
+        if logger is not None and entry_cc != category_cc:
+            logger.info(
+                f"{LOG_PREFIX} Channel '{entry.get('name')}' country: {entry_cc} "
+                f"(from name prefix, overriding {category_cc or 'lineup default'})"
+            )
+        return entry_cc
 
     def _apply_category_detail(self, data, detail):
         """Transform lineup categories based on the detail level setting.
@@ -888,21 +945,52 @@ class Plugin:
         logger.info(f"{LOG_PREFIX} Loaded {len(streams)} streams" + (f" from {len(valid_ids)} M3U sources" if valid_ids else ""))
         return streams
 
-    def _build_alias_map(self, settings, logger):
+    def _alias_map_provider(self, settings, logger):
+        """Return a callable mapping a country code to that country's alias map.
+
+        A lineup can carry channels from several countries (a category named
+        "UK| Sports" inside a mixed lineup), and each needs the alias table for
+        ITS country, not for the lineup filename's country.
+
+        Memoized for the life of ONE run and no longer. The map depends on the
+        custom_aliases setting and on the selected lineup's embedded aliases,
+        both of which change between runs while the plugin object survives in a
+        long-lived worker process. Instance-level caching would serve a stale
+        map after a settings edit, and would carry one lineup's embedded aliases
+        into another lineup of the same country.
+        """
+        cache = {}
+
+        def alias_map_for(country):
+            key = (country or "").upper()
+            if key not in cache:
+                cache[key] = self._build_alias_map(settings, logger, country=key or None)
+            return cache[key]
+
+        return alias_map_for
+
+    def _build_alias_map(self, settings, logger, country=None):
         """Merge built-in aliases with user custom aliases.
 
         Built-in aliases are global (keyed by channel name). Country-scoped
-        overrides from COUNTRY_ALIASES are merged on top for THIS lineup's
-        country only, so a name that exists in multiple markets (e.g. "TLC",
-        "MTV") doesn't leak one country's stream-name variants into another
-        (bug-063). Custom user aliases are merged last and win.
+        overrides from COUNTRY_ALIASES are merged on top for ONE country only, so
+        a name that exists in multiple markets (e.g. "TLC", "MTV") does not leak
+        one country's stream-name variants into another (bug-063). Custom user
+        aliases are merged last and win.
+
+        The country defaults to the one in the lineup filename. Callers that know
+        a channel's own country (from its category name or its name prefix) pass
+        it explicitly, so a UK channel inside a US lineup gets UK aliases.
         """
         alias_map = dict(CHANNEL_ALIASES)
 
-        try:
-            lineup_cc, _ = self._parse_lineup_filename(settings.get("lineup_file", ""))
-        except Exception:
-            lineup_cc = None
+        if country:
+            lineup_cc = country
+        else:
+            try:
+                lineup_cc, _ = self._parse_lineup_filename(settings.get("lineup_file", ""))
+            except Exception:
+                lineup_cc = None
         if lineup_cc:
             for k, v in COUNTRY_ALIASES.get(lineup_cc.upper(), {}).items():
                 alias_map[k] = list(dict.fromkeys(alias_map.get(k, []) + list(v)))
@@ -1714,7 +1802,7 @@ class Plugin:
             if lineup.get("status") == "error":
                 return lineup
             matcher = self._init_fuzzy_matcher(settings, logger)
-            alias_map = self._build_alias_map(settings, logger)
+            alias_map_for = self._alias_map_provider(settings, logger)
             upgrade_twin_set = self._get_upgrade_twin_set(settings, lineup, matcher)
             streams = self._get_all_streams(settings, logger)
             assigner = self._init_assigner_state(settings)
@@ -1757,13 +1845,14 @@ class Plugin:
                         return
 
                     ch_name = entry["name"]
+                    entry_cc = self._resolve_entry_country(entry, cat_cc, logger)
                     ch_number = self._get_channel_number(settings, entry, assigner)
                     boost_number = self._parse_channel_number(entry.get("number")) if use_number_boost else None
 
                     matches = matcher.match_all_streams(
-                        ch_name, unique_stream_names, alias_map,
+                        ch_name, unique_stream_names, alias_map_for(entry_cc),
                         channel_number=boost_number,
-                        lineup_country=cat_cc,
+                        lineup_country=entry_cc,
                         quality_aware=(ch_name in upgrade_twin_set),
                     )
 
@@ -2384,7 +2473,7 @@ class Plugin:
                 return lineup
             prefix = self._get_group_prefix(settings, lineup)
             matcher = self._init_fuzzy_matcher(settings, logger)
-            alias_map = self._build_alias_map(settings, logger)
+            alias_map_for = self._alias_map_provider(settings, logger)
             rate_limiter = SmartRateLimiter(settings.get("rate_limiting", PluginConfig.DEFAULT_RATE_LIMITING))
             lineup_cc, _ = self._parse_lineup_filename(settings.get("lineup_file", ""))
             if lineup_cc:
@@ -2443,6 +2532,7 @@ class Plugin:
                         return {"status": "ok", "message": "Stream matching cancelled by user."}
 
                     ch_name = entry["name"]
+                    entry_cc = self._resolve_entry_country(entry, cat_cc, logger)
                     ch_number = self._parse_channel_number(entry.get("number")) if use_number_boost else None
                     channel_id = existing_channels.get((ch_name, group_id))
 
@@ -2454,9 +2544,9 @@ class Plugin:
 
                     # Match streams using deduplicated names
                     matches = matcher.match_all_streams(
-                        ch_name, unique_stream_names, alias_map,
+                        ch_name, unique_stream_names, alias_map_for(entry_cc),
                         channel_number=ch_number,
-                        lineup_country=cat_cc,
+                        lineup_country=entry_cc,
                         quality_aware=(ch_name in upgrade_twin_set),
                     )
 
@@ -2693,7 +2783,7 @@ class Plugin:
                 return lineup
             prefix = self._get_group_prefix(settings, lineup)
             matcher = self._init_fuzzy_matcher(settings, logger)
-            alias_map = self._build_alias_map(settings, logger)
+            alias_map_for = self._alias_map_provider(settings, logger)
             rate_limiter = SmartRateLimiter(settings.get("rate_limiting", PluginConfig.DEFAULT_RATE_LIMITING))
 
             # Extract lineup country code for EPG country matching
@@ -2780,8 +2870,6 @@ class Plugin:
                     continue
 
                 cat_cc = self._resolve_category_country(category, lineup_cc, logger)
-                # Lineup country first, then relaxed (None) if nothing matched.
-                countries = (cat_cc, None) if cat_cc else (None,)
 
                 for entry in channels:
                     if self._stop_event.is_set():
@@ -2789,6 +2877,9 @@ class Plugin:
                         return {"status": "ok", "message": "EPG matching cancelled by user."}
 
                     ch_name = entry["name"]
+                    entry_cc = self._resolve_entry_country(entry, cat_cc, logger)
+                    # Channel country first, then relaxed (None) if nothing matched.
+                    countries = (entry_cc, None) if entry_cc else (None,)
                     ch_number = self._parse_channel_number(entry.get("number")) if use_number_boost else None
                     ch_data = existing_channels.get((ch_name, group_id))
 
@@ -2818,7 +2909,7 @@ class Plugin:
                             if not pool:
                                 continue
                             ms = matcher.match_all_streams(
-                                ch_name, pool, alias_map,
+                                ch_name, pool, alias_map_for(entry_cc),
                                 channel_number=ch_number,
                                 lineup_country=country,
                             )
@@ -2828,13 +2919,13 @@ class Plugin:
                             top_entries = lookup.get(top_name, [])
                             if not top_entries:
                                 continue
-                            best_epg = self._pick_epg_by_country(top_entries, cat_cc)
+                            best_epg = self._pick_epg_by_country(top_entries, entry_cc)
                             best_score = top_score
                             best_method = top_method
                             has_program_data = has_prog
                             if not has_prog:
                                 logger.debug(f"{LOG_PREFIX} EPG fallback (no program data): {ch_name} -> {best_epg['name']}")
-                            if country is None and cat_cc:
+                            if country is None and entry_cc:
                                 logger.debug(f"{LOG_PREFIX} EPG country-relaxed match: {ch_name} -> {best_epg['name']}")
                             break
                         if best_epg:
