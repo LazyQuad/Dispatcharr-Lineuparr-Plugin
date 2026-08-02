@@ -48,8 +48,8 @@
       "why": "an operator-side backup path that appears in deploy notes and should not ship in plugin code or documentation"
     },
     {
-      "pattern": "O:\\\\?docker",
-      "why": "the operator's Windows workspace drive and path"
+      "pattern": "O[:]\\\\?docker",
+      "why": "the operator's Windows workspace drive and path. The drive letter is separated by a character class so this rules file does not itself carry a Windows drive path"
     }
   ],
   "allow": [
