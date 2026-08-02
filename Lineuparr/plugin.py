@@ -22,6 +22,7 @@ from .fuzzy_matcher import (FuzzyMatcher, has_upgrade_quality, detect_category_c
                             detect_name_country_prefix, country_codes_in_text)
 from .aliases import CHANNEL_ALIASES, COUNTRY_ALIASES
 from .progress_status import save_progress_atomic, load_progress, build_status_message
+from . import reports
 
 from apps.channels.models import Channel, ChannelGroup, ChannelProfile, ChannelProfileMembership, ChannelStream, Stream
 from apps.m3u.models import M3UAccount
@@ -1390,6 +1391,57 @@ class Plugin:
         except Exception as e:
             logger.error(f"{LOG_PREFIX} Failed to release lock: {e}")
 
+    def _m3u_account_names(self, logger):
+        """Active M3U account names, or None when the lookup failed.
+
+        None and an empty list mean different things to the report builder: an
+        installation may legitimately have no active accounts, but a failed
+        lookup must not be mistaken for one, because these names are the report's
+        primary redaction input.
+        """
+        try:
+            return [a['name'] for a in M3UAccount.objects.filter(is_active=True).values('name')
+                    if a.get('name')]
+        except Exception as e:
+            logger.warning(f"{LOG_PREFIX} Could not read M3U account names for the report: {e}")
+            return None
+
+    def _write_html_report(self, title, columns, rows, settings, logger, export_filename=None):
+        """Write the shareable HTML and CSV report for a run. Returns the HTML
+        path, or None.
+
+        Never raises and never fails the run that produced the rows: a report is
+        not the plugin's real work. A failure is logged and the action carries on.
+
+        `columns` is the allow-list of (row key, header) pairs. A key absent from
+        it never reaches the report, so a column added to a CSV writer later
+        cannot start appearing in a shared file on its own.
+        """
+        try:
+            accounts = self._m3u_account_names(logger)
+            if accounts is None:
+                logger.warning(f"{LOG_PREFIX} HTML report skipped: M3U account names unavailable, "
+                               f"so stream names could not be scrubbed")
+                return None
+            model = reports.build_model(
+                title, columns, rows,
+                account_names=accounts,
+                settings=settings or {},
+                lineup=(settings or {}).get("lineup_file", ""),
+                version=PluginConfig.PLUGIN_VERSION,
+                now=time.time(),
+                export_filename=export_filename,
+            )
+            result = reports.write_report(model, reports.REPORT_DIR, time.time())
+            if result.get("error"):
+                logger.warning(f"{LOG_PREFIX} HTML report not written: {result['error']}")
+                return None
+            logger.info(f"{LOG_PREFIX} Report written: {result['html_path']}")
+            return result["html_path"]
+        except Exception as e:
+            logger.warning(f"{LOG_PREFIX} HTML report failed: {e}")
+            return None
+
     def _export_csv(self, filename, rows, fieldnames, logger, settings=None):
         """Export data to CSV in the exports directory with settings header."""
         try:
@@ -1761,8 +1813,14 @@ class Plugin:
 
         # Export CSV
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-        self._export_csv(f"lineuparr_preview_channels_{ts}.csv", results,
+        csv_name = f"lineuparr_preview_channels_{ts}.csv"
+        self._export_csv(csv_name, results,
                          ["Channel", "Number", "Category", "Group", "Status"], logger, settings)
+        self._write_html_report(
+            "Channel sync preview",
+            [("Channel", "Channel"), ("Number", "Number"), ("Category", "Category"),
+             ("Group", "Group"), ("Status", "Status")],
+            results, settings, logger, export_filename=csv_name)
 
         return {
             "status": "ok",
@@ -1900,9 +1958,16 @@ class Plugin:
             results.sort(key=lambda r: (0 if r["Score"] == 0 else 1, r["Score"]))
 
             ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-            self._export_csv(f"lineuparr_preview_match_{ts}.csv", results,
+            csv_name = f"lineuparr_preview_match_{ts}.csv"
+            self._export_csv(csv_name, results,
                              ["Channel", "Number", "Category", "Best Match", "Score", "Match Type", "Total Matches", "Top Matches"],
                              logger, settings)
+            report_path = self._write_html_report(
+                "Preview stream match",
+                [("Channel", "Channel"), ("Number", "Number"), ("Category", "Category"),
+                 ("Best Match", "Best match"), ("Score", "Score"), ("Match Type", "Match type"),
+                 ("Total Matches", "Total matches")],
+                results, settings, logger, export_filename=csv_name)
 
             total = matched_count + unmatched_count
             type_breakdown = ", ".join(f"{v} {k}" for k, v in sorted(type_counts.items(), key=lambda x: -x[1]))
@@ -1912,6 +1977,9 @@ class Plugin:
                 f"{unmatched_count} unmatched. "
                 f"Types: {type_breakdown}. CSV exported."
             )
+            if report_path:
+                msg += f" Report: {report_path}"
+
             progress.finish(summary=msg)
             logger.info(f"{LOG_PREFIX} {msg}")
             send_websocket_update('updates', 'update', {
@@ -2657,11 +2725,18 @@ class Plugin:
             # Export CSV
             ts = datetime.now().strftime("%Y%m%d_%H%M%S")
             mode = "dryrun" if dry_run else "applied"
+            csv_name = f"lineuparr_match_{mode}_{ts}.csv"
             self._export_csv(
-                f"lineuparr_match_{mode}_{ts}.csv", csv_rows,
+                csv_name, csv_rows,
                 ["Channel", "Number", "Category", "Streams Attached", "Best Match", "Best Score", "Match Type"],
                 logger, settings
             )
+            self._write_html_report(
+                "Stream match (dry run)" if dry_run else "Stream match applied",
+                [("Channel", "Channel"), ("Number", "Number"), ("Category", "Category"),
+                 ("Streams Attached", "Streams attached"), ("Best Match", "Best match"),
+                 ("Best Score", "Best score"), ("Match Type", "Match type")],
+                csv_rows, settings, logger, export_filename=csv_name)
 
             # Save state
             self._save_state({
@@ -2986,13 +3061,22 @@ class Plugin:
             # Export CSV
             if csv_rows:
                 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                csv_name = f"lineuparr_epg_match_{timestamp}.csv"
                 self._export_csv(
-                    f"lineuparr_epg_match_{timestamp}.csv",
+                    csv_name,
                     csv_rows,
                     ["channel_name", "channel_number", "channel_group", "matched_epg_name",
                      "epg_source", "confidence_score", "has_program_data", "match_method", "status"],
                     logger, settings,
                 )
+                self._write_html_report(
+                    "EPG match",
+                    [("channel_name", "Channel"), ("channel_number", "Number"),
+                     ("channel_group", "Group"), ("matched_epg_name", "Matched EPG entry"),
+                     ("epg_source", "EPG source"), ("confidence_score", "Score"),
+                     ("has_program_data", "Has programme data"), ("match_method", "Match method"),
+                     ("status", "Status")],
+                    csv_rows, settings, logger, export_filename=csv_name)
 
             progress.finish()
             self._trigger_frontend_refresh(logger)
