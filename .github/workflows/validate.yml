@@ -16,6 +16,8 @@ on:
       - ".github/scripts/matcher_golden_baseline.json"
       - ".github/scripts/check_core_parity.py"
       - ".github/scripts/core_manifest.json"
+      - ".github/scripts/check_client_parity.py"
+      - ".github/scripts/client_manifest.json"
       - ".github/workflows/validate.yml"
   pull_request:
     paths:
@@ -26,6 +28,8 @@ on:
       - ".github/scripts/matcher_golden_baseline.json"
       - ".github/scripts/check_core_parity.py"
       - ".github/scripts/core_manifest.json"
+      - ".github/scripts/check_client_parity.py"
+      - ".github/scripts/client_manifest.json"
       - ".github/workflows/validate.yml"
   workflow_dispatch:
 
@@ -48,6 +52,13 @@ jobs:
         run: |
           python -m py_compile Lineuparr/matching_core.py
           python .github/scripts/check_core_parity.py
+      # The vendored notification client is pinned the same way, and for the same
+      # reason: a hand-edit or a CRLF checkout changes the hash without changing
+      # a character of code.
+      - name: Vendored notification-client parity gate
+        run: |
+          python -m py_compile Lineuparr/notify_client.py
+          python .github/scripts/check_client_parity.py
       # The matcher golden gate needs rapidfuzz to reproduce the production
       # similarity path that the committed baseline was generated against.
       - name: Install matcher-check deps

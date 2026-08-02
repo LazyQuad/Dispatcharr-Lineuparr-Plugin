@@ -108,8 +108,17 @@ def check_manifest() -> None:
                     err(f"plugin.json field {field.get('id')!r} {key}: non-BMP char U+{ord(chr_):04X}")
 
 
+# Files vendored byte-identically from the workspace _shared/ source of truth.
+# They are exempt from the em-dash ban because they are not this repository's
+# text to edit: each is sha256-pinned by its own parity gate, so changing one
+# character here would fail that gate instead. An intended change goes into the
+# shared source and is re-vendored into every plugin that carries a copy.
+VENDORED = {"matching_core.py", "notify_client.py"}
+
+
 def check_no_em_dashes() -> None:
-    targets = list(PLUGIN_DIR.glob("*.py")) + list(PLUGIN_DIR.glob("*.json"))
+    targets = [p for p in (list(PLUGIN_DIR.glob("*.py")) + list(PLUGIN_DIR.glob("*.json")))
+               if p.name not in VENDORED]
     readme = ROOT / "README.md"
     if readme.exists():
         targets.append(readme)

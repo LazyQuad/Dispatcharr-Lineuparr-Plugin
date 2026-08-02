@@ -22,7 +22,7 @@ from .fuzzy_matcher import (FuzzyMatcher, has_upgrade_quality, detect_category_c
                             detect_name_country_prefix, country_codes_in_text)
 from .aliases import CHANNEL_ALIASES, COUNTRY_ALIASES
 from .progress_status import save_progress_atomic, load_progress, build_status_message
-from . import reports
+from . import notify_bridge, reports
 
 from apps.channels.models import Channel, ChannelGroup, ChannelProfile, ChannelProfileMembership, ChannelStream, Stream
 from apps.m3u.models import M3UAccount
@@ -501,6 +501,43 @@ class Plugin:
                 "placeholder": "{\"Channel Name\": [\"alias 1\", \"alias 2\"]}",
                 "help_text": "JSON object mapping a lineup channel name to extra alias names (a bare string is accepted as a single alias). Leave blank to use built-in aliases only.",
             },
+            # --- Section: Notifications ---
+            {
+                "id": "_sec_notify",
+                "type": "info",
+                "label": "Report delivery",
+                "help_text": "Every run that exports a CSV also writes a shareable HTML report with a sortable table. Newsflasharr can email it. This is off by default and needs the Newsflasharr plugin installed, enabled, and routing this plugin's usage_report event to your email channel.",
+            },
+            {
+                "id": "notify_enabled",
+                "label": "Send reports to Newsflasharr",
+                "type": "boolean",
+                "default": False,
+                "help_text": "Master switch. When off, reports are still written to disk and nothing is sent.",
+            },
+            {
+                "id": "notify_report_on",
+                "label": "When to send",
+                "type": "select",
+                "default": "never",
+                "options": [
+                    {"value": "never", "label": "Never - write the report, send nothing"},
+                    {"value": "every_run", "label": "Every run that produces a report"},
+                ],
+                "help_text": "Applies to the channel sync preview, preview stream match, apply stream match, and EPG match.",
+            },
+            {
+                "id": "notify_report_format",
+                "label": "What to attach",
+                "type": "select",
+                "default": "both",
+                "options": [
+                    {"value": "both", "label": "Both the HTML page and the CSV"},
+                    {"value": "html", "label": "HTML page only"},
+                    {"value": "csv", "label": "CSV only"},
+                ],
+                "help_text": "A notification carries one attachment, so choosing both sends two emails per run.",
+            },
             # --- Section: Advanced ---
             {
                 "id": "_sec_advanced",
@@ -540,6 +577,7 @@ class Plugin:
                 "apply_logo_match": self._apply_logo_match,
                 "resort_streams": self._resort_streams,
                 "clear_csv_exports": self._clear_csv_exports,
+                "email_report": self._email_report,
                 # Legacy actions (no UI buttons, kept for API compatibility)
                 "preview_groups": self._preview_groups,
                 "sync_groups": self._sync_groups,
@@ -1437,10 +1475,86 @@ class Plugin:
                 logger.warning(f"{LOG_PREFIX} HTML report not written: {result['error']}")
                 return None
             logger.info(f"{LOG_PREFIX} Report written: {result['html_path']}")
+            self._emit_reports(result, settings, logger)
             return result["html_path"]
         except Exception as e:
             logger.warning(f"{LOG_PREFIX} HTML report failed: {e}")
             return None
+
+    @staticmethod
+    def _notify_client():
+        """Import the vendored client lazily.
+
+        Deliberately not a module-scope import: a notification path is never worth
+        failing the plugin's load over, and the fallback form is what lets the
+        module be imported by a test harness that has no package parent.
+        """
+        try:
+            from . import notify_client
+        except ImportError:
+            import notify_client
+        return notify_client
+
+    def _emit_reports(self, written, settings, logger):
+        """Hand the written report files to Newsflasharr. Returns its result dict.
+
+        Never raises and never fails the run that produced the report.
+        """
+        try:
+            result = notify_bridge.emit_reports(
+                self._notify_client().notify, settings or {}, written)
+            if result.get("sent"):
+                logger.info(f"{LOG_PREFIX} Report queued for delivery: "
+                            f"{result['sent']} notification(s)")
+            elif result.get("skipped_reason"):
+                logger.debug(f"{LOG_PREFIX} Report not sent: {result['skipped_reason']}")
+            return result
+        except Exception as e:
+            logger.warning(f"{LOG_PREFIX} Report delivery failed: {e}")
+            return {"sent": 0, "skipped_reason": str(e)}
+
+    def _email_report(self, settings, logger):
+        """Send the newest report on disk, on demand.
+
+        Sends what is already there rather than re-running a match: a match is
+        minutes of work and the operator asked to send a report, not to produce
+        one.
+        """
+        if not notify_bridge.is_enabled(settings):
+            return {"status": "error",
+                    "error": "Sending reports to Newsflasharr is switched off. Turn on "
+                             "'Send reports to Newsflasharr' in the settings above, save, "
+                             "and try again."}
+        try:
+            entries = []
+            for suffix in (".html", ".csv"):
+                found = sorted(
+                    (os.path.join(reports.REPORT_DIR, n)
+                     for n in os.listdir(reports.REPORT_DIR)
+                     if n.startswith(reports.FILENAME_PREFIX) and n.endswith(suffix)),
+                    key=os.path.getmtime, reverse=True)
+                entries.append(found[0] if found else None)
+        except OSError:
+            entries = [None, None]
+
+        if not any(entries):
+            return {"status": "error",
+                    "error": "No report to send yet. Run Preview Stream Match, or any "
+                             "action that exports a CSV, and a report is written "
+                             f"to {reports.REPORT_DIR}."}
+
+        written = {"html_path": entries[0], "csv_path": entries[1], "error": None}
+        # The on-demand button always sends, whatever the schedule setting says:
+        # the operator pressing it IS the trigger.
+        result = self._emit_reports(written, dict(settings or {}, notify_report_on="every_run"),
+                                    logger)
+        if not result.get("sent"):
+            reason = result.get("skipped_reason") or "no report file could be read"
+            return {"status": "error", "error": f"Nothing was sent: {reason}"}
+        names = ", ".join(os.path.basename(p) for p in entries if p)
+        return {"status": "ok",
+                "message": f"Queued {result['sent']} notification(s) with Newsflasharr: {names}",
+                "file": entries[0] or entries[1]}
 
     def _export_csv(self, filename, rows, fieldnames, logger, settings=None):
         """Export data to CSV in the exports directory with settings header."""
