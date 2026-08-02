@@ -10,6 +10,7 @@
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/PiratesIRC/Dispatcharr-Lineuparr-Plugin)
 [![Workflow Guide](https://img.shields.io/badge/%F0%9F%93%96-Workflow_Guide-1F6FEB?style=flat)](https://piratesirc.github.io/Dispatcharr-Plugin-Workflow/lineuparr/)
 [![Discord](https://img.shields.io/badge/Discord-Discussion-5865F2?logo=discord&logoColor=white)](https://discord.gg/Sp45V5BcxU)
+[![Sponsor](https://img.shields.io/badge/Sponsor-db61a2?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/PiratesIRC)
 
 [![GitHub Release](https://img.shields.io/github/v/release/PiratesIRC/Dispatcharr-Lineuparr-Plugin?include_prereleases&logo=github)](https://github.com/PiratesIRC/Dispatcharr-Lineuparr-Plugin/releases)
 [![Downloads](https://img.shields.io/github/downloads/PiratesIRC/Dispatcharr-Lineuparr-Plugin/total?color=success&label=Downloads&logo=github)](https://github.com/PiratesIRC/Dispatcharr-Lineuparr-Plugin/releases)
@@ -107,228 +108,21 @@ No API credentials are needed -- the plugin runs inside Dispatcharr with direct 
    - Check that the plugin appears in the plugin list
    - Reconfigure your settings if needed
 
-## Settings Reference
+## Documentation
 
-| Setting | Type | Default | Description |
-|---------|------|---------|-------------|
-| Lineup File | select | `US_DirecTV-Premier_lineup.json` | Provider lineup to use (auto-populated from available JSON files) |
-| M3U Source | select | *(empty)* | M3U source to match streams from |
-| Channel Profile | select | *(empty)* | Channel profile to enable matched channels in |
-| Channel Group Prefix | string | *(empty)* | Prefix added to created channel group names |
-| Category Detail | select | `Normal` | Controls how lineup categories are grouped (None, Refined, Simple, Normal) |
-| Match Sensitivity | select | `Normal` | Matching strictness: Relaxed, Normal, Strict, or Exact |
-| Channel Numbering | select | `Use Channel Database Numbers` | How to assign channel numbers: Database, Auto-Assign Next, Auto-Assign After Highest, or Specific |
-| Starting Channel Number | string | *(empty)* | Starting number for "Use Specific Number" mode |
-| Order Matched Streams by Quality | boolean | `true` | Sort matched streams by detected quality (4K > HD > SD) |
-| Preserve Existing Streams | boolean | `false` | Append newly matched streams without deleting existing ones; skip duplicates; do not delete unmatched channels (non-destructive add) |
-| Single Channel Match | string | *(empty)* | When set, Preview/Apply Stream Match, Apply EPG Match, and Assign Logos act only on the lineup channel(s) with this exact name (case-insensitive). Blank = whole lineup. Full Sync ignores it. |
-| Rate Limiting | select | `None` | Throttle between operations: None, Low, Medium, or High delay |
-| Custom Channel Aliases (JSON) | string | *(empty)* | JSON object of custom alias overrides (see [Custom Aliases](#custom-aliases)) |
-| EPG Sources | select | `All EPG sources` | EPG source(s) to match against. "All" uses every source, ordered by the priority configured in Dispatcharr |
+| Page | What is in it |
+|---|---|
+| **[User guide](docs/USER-GUIDE.md)** | Every setting, every action, match sensitivity, country matching, custom aliases, troubleshooting, and how the matching pipeline works. |
+| **[Lineup file format](docs/LINEUP-FORMAT.md)** | Writing your own lineup: the JSON shape, the filename rule, per-channel aliases, and marking foreign channels. |
 
-### Match Sensitivity Levels
+## Usage in one minute
 
-| Level | Best For |
-|-------|----------|
-| Relaxed | Maximum coverage -- cast a wide net, then review the CSV for false positives |
-| Normal | General use -- good accuracy with reasonable coverage |
-| Strict | High confidence matches only -- fewer results, fewer mistakes |
-| Exact | Near-exact matches only -- minimal false positives, may miss valid matches |
+1. Pick a **Lineup File** and an **M3U Source**, then save.
+2. Run **Validate Settings** to check the configuration and see the lineup summary.
+3. Run **Preview Stream Match**. Nothing is changed; a CSV lands in `/data/exports/` showing what would match and how confidently.
+4. If the preview looks right, run **Full Sync**.
 
-> **Tip: noisy or multi-country providers.** Lineuparr attaches every stream at or above the match threshold to a channel (for failover), so a large multi-country M3U can attach sibling-but-different feeds that share a common word: e.g. a US "Fox Sports 1" picking up "TNT Sports 1" / "Sky Sports F1" / "AFN Sports", or "Sports Mix" picking up "Sky Sports Mix". These land in the 81-89% range, so switching to **Strict** removes them while keeping the genuine matches. Use **Strict** when your source mixes countries or carries untagged foreign channels. Note that **Order Matched Streams by Quality** only changes the ordering of attached streams, not which streams attach -- it does not affect false positives.
->
-> If Strict still lets a few cross-country feeds through, you have two more levers. Matching only ever reads the stream **name**, never its channel group, so:
->
-> - **Limit the M3U Source.** This is the cleanest fix. If the foreign feeds come from a different M3U account than the channels you want, just don't select that source for the run -- those streams never enter the candidate pool, at any sensitivity. (Sorting streams into country-named *groups* does **not** help, because the matcher does not read group names.)
-> - **Prefix the stream name with a country code.** The country filter drops a stream when its name carries a recognized marker that differs from the lineup's country -- e.g. `UK: Sky Sports F1`, `UK| Sky Sports`, `UK Sky Sports` (bare space), or `(UK) Sky Sports`. Bulk-renaming the offending streams to a `UK ...` prefix makes them drop from a US lineup automatically. (Exception: a bare `IN ` prefix is **not** treated as India, because it collides with the English word "In" -- e.g. the real channel "In Country Television" -- so use `(IN)` or `IN:` if you need to tag Indian feeds.)
-
-## Usage Guide
-
-### Step-by-Step Workflow
-
-1. **Configure Settings**
-   - Select your **Lineup File** (e.g., `US_DirecTV-Premier_lineup.json`)
-   - Select your **M3U Source**
-   - Optionally set a **Channel Group Prefix** and **Channel Profile**
-   - Choose your **Match Sensitivity** level
-   - Click **Save Settings**
-
-2. **Validate Settings** *(Recommended)*
-   - Click **Run** on **Validate Settings**
-   - Verifies lineup file, M3U source, and shows lineup summary with channel counts per category
-
-3. **Preview Stream Matches** *(Recommended)*
-   - Click **Run** on **Preview Stream Match**
-   - Dry-run that shows what streams would be matched to which channels
-   - Exports results to CSV with confidence scores for review
-   - No changes are made to your channels -- safe to run at any time
-
-4. **Full Sync** *(One-Click Setup)*
-   - Click **Run** on **Full Sync**
-   - Creates channel groups from lineup categories
-   - Creates channels with correct numbering
-   - Fuzzy-matches streams to channels
-   - Assigns EPG data
-   - Assigns logos
-   - Enables channels in selected profile
-   - **Removes channels that had no streams matched** (see [Unmatched Channel Cleanup](#unmatched-channel-cleanup))
-
-### Individual Actions
-
-For more control, run individual steps instead of Full Sync:
-
-- **Show Status** -- Show live progress of the current operation, or the result of the last one, without opening the container logs
-- **Sync Channels Only** -- Create/update groups and channels from lineup (no stream matching)
-- **Apply Stream Match Only** -- Attach matched streams to existing channels with quality ordering
-- **Apply EPG Match** -- Fuzzy-match EPG data to channels and assign program guides
-- **Assign Logos** -- Auto-assign channel logos from EPG icons, Logo Manager, or tv-logos GitHub repo
-- **Re-sort Streams by Quality** -- Re-order already-attached streams using latest quality data (see [IPTV Checker Integration](#iptv-checker-integration))
-- **Clear CSV Exports** -- Delete all Lineuparr CSV export files
-
-> **Single Channel Match:** set the *Single Channel Match* setting to a channel name to scope **Preview Stream Match**, **Apply Stream Match Only**, **Apply EPG Match**, and **Assign Logos** to just that channel. Leave it blank for whole-lineup behavior. **Full Sync** always runs the whole lineup regardless of this setting.
-
-### Unmatched Channel Cleanup
-
-After stream matching, **Full Sync** and **Apply Stream Match Only** will automatically delete any channels in Lineuparr-managed groups that have zero streams attached. This keeps your channel list clean by removing lineup entries that don't exist in your M3U source.
-
-When **Preserve Existing Streams** is enabled, this cleanup is skipped -- unmatched channels are kept so a non-destructive add does not remove channels populated by another source.
-
-Only channels in groups created by Lineuparr are affected -- your other channels are never touched. If you want to see what would be removed before committing, run **Preview Stream Match** first to review the unmatched channels in the CSV export.
-
-### IPTV Checker Integration
-
-If you use the [IPTV Checker plugin](https://github.com/PiratesIRC/Dispatcharr-IPTV-Checker-Plugin), you can improve stream quality ordering:
-
-1. Run a Full Sync or Apply Stream Match to attach streams to channels
-2. Run an IPTV Checker scan on your Lineuparr channel groups
-3. Run **Re-sort Streams by Quality** to re-order streams using actual resolution and bitrate data from the scan instead of name-based quality detection
-
-## Custom Lineup Files
-
-Create your own lineup JSON files following this format:
-
-```json
-{
-  "package": "Provider Name",
-  "date": "2026-01-01",
-  "description": "Description of the lineup",
-  "source": "Where the lineup data came from",
-  "categories": {
-    "News": [
-      { "name": "CNN", "number": 202 },
-      { "name": "Fox News", "number": 360 }
-    ],
-    "Sports": [
-      { "name": "ESPN", "number": 206 }
-    ]
-  }
-}
-```
-
-**Important:** The filename must follow the format `{CC}_{Provider}_lineup.json` where `{CC}` is a 2-letter ISO country code (e.g., `US`, `UK`, `CA`, `NL`). The country code is used for logo matching against the [tv-logos](https://github.com/tv-logo/tv-logos) repository. For example: `US_MyProvider_lineup.json`, `UK_Freeview_lineup.json`.
-
-Place the file in the plugin directory and it will appear in the **Lineup File** dropdown.
-
-### Per-channel aliases
-
-A channel entry may carry its own `aliases` array. These are merged with the built-in alias table for that lineup only, which is the right place for stream-name variants that are specific to one provider:
-
-```json
-{ "name": "My9 New York", "number": 509, "aliases": ["WWOR", "WWOR-TV", "MY9"] }
-```
-
-When an alias is a US broadcast callsign, a stream carrying that callsign anywhere in its name matches, so `WWOR` reaches `US: MY 9 WWOR NEW YORK` and `CITY: MNT WWOR NEW YORK`. Ordinary words that look like callsigns (KIDS, WORLD, WOMEN, WEST) are excluded, so they never pull in unrelated streams.
-
-### Foreign channels inside a single-country lineup
-
-Matching is normally restricted to the lineup's own country, which is what stops a Canadian feed attaching to a US channel. Two ways to mark a channel that belongs to a different country:
-
-**A country prefix on the channel name.** Name the channel `{CC}_{Name}` and it is matched against that country instead, wherever it sits in the lineup:
-
-```json
-"International": [
-  { "name": "UK_CNN", "number": 501 },
-  { "name": "FR_TF1", "number": 502 }
-]
-```
-
-The prefix is stripped before anything else sees it, so Dispatcharr creates the channel as `CNN`, not `UK_CNN`. Only recognized country codes count, so an ordinary name containing an underscore is left alone. Each marked channel also gets that country's aliases.
-
-**A country prefix on the category name.** A whole category can be marked instead, using `UK| International`, `UK: International` or `UK International`. Use this when the foreign channels are already grouped together.
-
-A channel's own prefix wins over its category's, which wins over the lineup filename.
-
-## Custom Aliases
-
-Override or extend the built-in alias table using the **Custom Channel Aliases (JSON)** setting. Paste a JSON object where keys are the **exact lineup channel name** (as it appears in the lineup JSON) and values are arrays of alternate names your IPTV provider uses for that channel (a single alias may also be given as a plain string instead of a one-item array):
-
-```json
-{
-  "FOX News Channel": ["FOX NEWS HD", "FoxNews", "Fox News USA"],
-  "HISTORY Channel, The": ["HISTORY", "History Channel HD", "History US"],
-  "My Local Station": ["WABC", "WABC-TV", "ABC 7 New York"]
-}
-```
-
-**How to find the right key:** Open the lineup JSON file and look for the exact `"name"` value of the channel you want to add aliases for. For example, if the lineup has `"name": "HISTORY Channel, The"`, use that exact string as the key.
-
-**How to find what to alias to:** Run **Preview Stream Match** and check the CSV export for unmatched channels. The stream names shown in your M3U source are what you should add as alias values.
-
-Custom aliases are merged on top of the 200+ built-in aliases, so you only need to specify additions or overrides for channels that aren't matching automatically.
-
-## Troubleshooting
-
-### First Step: Restart Container
-**For any plugin issues, try refreshing your browser (F5) and then restarting the Dispatcharr container:**
-```bash
-docker restart dispatcharr
-```
-
-### Common Issues
-
-**"Plugin not found" Errors:**
-- Refresh browser page (F5)
-- Restart Dispatcharr container
-
-**Low Match Rate:**
-- Try **Relaxed** sensitivity for initial testing
-- Use **Preview Stream Match** to review what's matching and what's not
-- Add **Custom Aliases** for channels with unusual IPTV naming
-- Check that your M3U source actually contains the channels you expect
-
-**Channels Created But No Streams Attached:**
-- Verify your M3U source is selected in settings
-- Run **Preview Stream Match** to check for matching issues
-- Stream names may differ significantly from lineup names -- add custom aliases
-
-**EPG Not Assigned:**
-- Ensure EPG sources are configured in Dispatcharr
-- Run **Apply EPG Match** separately to see detailed matching logs
-- Check container logs: `docker logs dispatcharr | grep "Lineuparr"`
-
-**Progress Not Updating:**
-- Operations run in the background and continue even if the browser times out
-- Click the **Show Status** action (📊 Status) any time to see live progress and ETA, or the last run's result summary
-- Container logs also show detailed step-by-step progress
-
-<details>
-<summary><strong>How Matching Works (Technical Details)</strong></summary>
-
-Lineuparr uses a 4-stage matching pipeline for each lineup channel:
-
-1. **Alias Match** -- Checks the built-in alias table and custom aliases for known name variants (e.g., "FOX News Channel" matches "Fox News", "FNC")
-2. **Exact Match** -- Normalized name comparison with space/punctuation stripping
-3. **Substring Match** -- One name contained within the other with length ratio check
-4. **Fuzzy Token-Sort** -- Levenshtein distance on sorted, cleaned tokens
-
-All stages use:
-- **Length-scaled thresholds** -- Shorter names require higher similarity to prevent false positives
-- **Token overlap guards** -- At least one distinctive token must be shared between names
-- **Regional filtering** -- East/West/Pacific variants are matched to correct regional streams
-- **Callsign anchoring** -- a shared high-confidence US broadcast callsign (e.g. "WABC") rescues a correct match or hard-rejects a disagreeing one
-- **Channel number boost** -- 3+ digit channel numbers in stream names provide tiebreaker points (only active in "Use Channel Database Numbers" mode)
-
-</details>
+Full detail for each step, and for the other eight actions, is in the [user guide](docs/USER-GUIDE.md).
 
 ## File Locations
 
@@ -354,13 +148,24 @@ python3 bump_version.py 1.26.1031200 # explicit
 ```
 
 ### Submitting Lineup Databases
-We welcome community-contributed lineup files! If you have a TV provider lineup that isn't included, please submit it as a pull request or open an issue with:
-- Provider name and country
-- Channel list with channel numbers and categories
-- Source where the lineup data was obtained
+Community-contributed lineups are welcome. The JSON shape and the filename rule are in the [lineup file format](docs/LINEUP-FORMAT.md); open a pull request with the file, or an issue with the provider name, country, channel list and where the listing came from.
 
-If you'd like a specific provider added but can't create the file yourself, open a **Lineup Request** issue with the provider name, country, and a link to their channel listing page.
+If you would like a provider added but cannot build the file yourself, open a **Lineup Request** issue with the provider name, country, and a link to their channel listing page.
 
 ---
 
-*All product names, trademarks, and registered trademarks mentioned in this project are the property of their respective owners. Channel lineup data is community-compiled from publicly available information and is not affiliated with or endorsed by any TV provider.*
+## Disclaimer
+
+**Lineuparr provides no television content of any kind.** It supplies no channels, no playlists, no streams, no electronic programme guide data and no provider accounts, and it contains no list of where to obtain any of those. The lineup files it ships are lists of channel names and channel numbers, compiled from publicly available provider channel listings. They contain no stream addresses, no credentials and no provider account details.
+
+The plugin never contacts a media provider. It never opens, fetches, decodes, records, restreams or redistributes any stream. It reads the stream names, EPG entries and channels that Dispatcharr already holds for the sources **you** configured, matches them by name against a lineup you chose, and writes the results back into Dispatcharr. The only network requests it makes on its own are to the [tv-logos](https://github.com/tv-logo/tv-logos) repository on GitHub, when you ask it to assign channel logos.
+
+**You are responsible for what you connect Dispatcharr to.** Whether a particular provider, subscription, playlist or stream is lawful for you to use depends on your agreement with that provider and on the law where you live. Use only sources you are authorised to use. Nothing in this project is intended to enable, encourage or assist access to content you have no right to access.
+
+All product names, channel names, trademarks and registered trademarks mentioned in this project or appearing in its lineup files are the property of their respective owners. This project is an independent, community-built plugin. It is not affiliated with, endorsed by, or sponsored by any television network, broadcaster, streaming service or IPTV provider, and it is not affiliated with the Dispatcharr project beyond being a plugin written for it.
+
+The software is provided as-is, without warranty of any kind, as set out in the licence. This section describes the design of the software and the author's intent. It is not legal advice. If you need to know whether your own use is lawful, ask someone qualified in your jurisdiction.
+
+## License
+
+MIT. See [`LICENSE`](LICENSE).

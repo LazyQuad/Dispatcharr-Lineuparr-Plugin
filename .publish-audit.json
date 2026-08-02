@@ -1,0 +1,69 @@
+{
+  "_comment": [
+    "Rules for the workspace pre-publish audit, run against whatever ref is",
+    "about to be pushed:",
+    "",
+    "  python ../.claude/skills/pre-publish-audit/audit_publish.py \\",
+    "      --ref main --rules .publish-audit.json",
+    "",
+    "Use --worktree instead of --ref to audit tracked files as they stand.",
+    "",
+    "`deny` holds strings the built-in patterns cannot know about, because they",
+    "look like ordinary words to a generic scanner: a provider brand host, an",
+    "M3U account suffix, a LAN prefix. Every pattern is written with a character",
+    "class so that this rules file does not itself become the leak it exists to",
+    "prevent.",
+    "",
+    "`allow` holds expected matches. Each needs a reason. Loosening a pattern to",
+    "silence a finding is how the next real one gets through: add an allow entry",
+    "instead.",
+    "",
+    "Prove the rules fire before trusting a clean result. Plant a file containing",
+    "each forbidden string at a path that is actually scanned and confirm each",
+    "rule reports it. A gitignored canary proves nothing and looks like a pass.",
+    "",
+    "The audit reads the CURRENT TREE only, while a push publishes every",
+    "reachable commit. Scan history separately with `git rev-list --objects`",
+    "plus `git cat-file -p` per blob against these same rules."
+  ],
+  "deny": [
+    {
+      "pattern": "strea[m]q",
+      "why": "the provider's real brand host, written as a pattern so this file does not contain it"
+    },
+    {
+      "pattern": "cf\\.li[v]e",
+      "why": "the provider's real CDN host label in any form. Swapping only the top-level domain is not a placeholder: it still names the provider. Use edge-NN.example"
+    },
+    {
+      "pattern": "\\bbk(15|26|29)\\b",
+      "why": "the real M3U account name suffixes, one per provider login"
+    },
+    {
+      "pattern": "192\\.168\\.211\\.",
+      "why": "this installation's LAN prefix, which names the operator's internal network"
+    },
+    {
+      "pattern": "/data/plugi[n]_backups",
+      "why": "an operator-side backup path that appears in deploy notes and should not ship in plugin code or documentation"
+    },
+    {
+      "pattern": "O:\\\\?docker",
+      "why": "the operator's Windows workspace drive and path"
+    }
+  ],
+  "allow": [
+    {
+      "pattern": "CLAUDE\\.md",
+      "reason": "named in .gitignore so the working-notes file is never committed. The reference is the protection, not a leak: the file itself is excluded"
+    },
+    {
+      "pattern": "/data/plugins/lineuparr",
+      "reason": "the plugin's own install path inside the Dispatcharr container, documented deliberately in the README and the user guide"
+    },
+    {
+      "pattern": "/data/exports",
+      "reason": "where the plugin writes its CSV exports, documented deliberately"
+    }
+  ]
+}

@@ -40,13 +40,18 @@ GEMINI.md
 
 # Local docs/files
 *.zip
-docs/
+# docs/ holds the published documentation set. Everything else under it is
+# local working material: ignore the lot, then re-include the published
+# pages by name below, so a new page is a deliberate decision.
+docs/*
 tests/
 test_*.py
 *.cmd
 MEMORY.md
 *.md
 !README.md
+!docs/USER-GUIDE.md
+!docs/LINEUP-FORMAT.md
 
 # Dev notes
 dispatcharr-plugin-limitations.md
