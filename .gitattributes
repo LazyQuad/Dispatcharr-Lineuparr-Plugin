@@ -1,3 +1,18 @@
+# Normalize every text file to LF in the repository (bug-118). Release zips are
+# built with `git archive`, which ships blob bytes verbatim for paths with no
+# `text` attribute, so any file committed WITH CRLF stayed CRLF in the shipped
+# artifact no matter what core.eol or core.autocrlf were set to at archive time.
+# CRLF in a release is benign on Dispatcharr's Linux host (Python reads it fine,
+# and it is not the backslash-path problem that breaks install), but it violates
+# the LF convention and defeats byte-identical vendoring. `text=auto` lets git
+# detect and leave binaries alone.
+* text=auto eol=lf
+
+# Belt and braces: never touch these, whatever the auto-detection decides.
+*.png binary
+*.jpg binary
+*.zip binary
+
 # The vendored shared core is sha256-pinned by .github/scripts/check_core_parity.py
 # against .github/scripts/core_manifest.json, so it MUST stay LF on every OS - a CRLF
 # checkout (Windows autocrlf) would change the hash and break the drift gate. Same for
