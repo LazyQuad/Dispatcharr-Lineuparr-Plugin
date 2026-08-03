@@ -120,7 +120,12 @@ matched no streams. See [Unmatched channel cleanup](#unmatched-channel-cleanup).
 
 ## The actions, one by one
 
-Run these individually when you want more control than Full Sync gives.
+Run these individually when you want more control than Full Sync gives. They all
+live on the Actions tab of the plugin panel:
+
+![The top of the Lineuparr Actions tab, showing Validate Settings, Show Status, Preview Stream Match, Full Sync and Sync Channels Only](screenshots/actions-panel-top.jpg)
+
+![The rest of the Actions tab, showing Apply Stream Match Only, Apply EPG Match, Assign Logos, Re-sort Streams by Quality, Clear CSV Exports and Email Report Now](screenshots/actions-panel-bottom.jpg)
 
 | Action | What it does |
 |---|---|

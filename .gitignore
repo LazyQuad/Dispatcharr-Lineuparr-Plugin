@@ -52,6 +52,11 @@ MEMORY.md
 !README.md
 !docs/USER-GUIDE.md
 !docs/LINEUP-FORMAT.md
+# Screenshots used by the published documentation. Everything else under
+# docs/ stays local, so a new image is a deliberate decision.
+!docs/screenshots/
+!docs/screenshots/*.jpg
+!docs/screenshots/*.png
 
 # Dev notes
 dispatcharr-plugin-limitations.md
