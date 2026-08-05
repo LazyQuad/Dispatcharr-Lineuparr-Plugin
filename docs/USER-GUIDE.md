@@ -24,6 +24,7 @@ it does and how to install it.
 - [IPTV Checker integration](#iptv-checker-integration)
 - [Troubleshooting](#troubleshooting)
 - [How matching works](#how-matching-works)
+- [Reports](#reports)
 - [File locations](#file-locations)
 
 ---
@@ -60,6 +61,9 @@ tells you whether your match sensitivity is set sensibly for your source.
 | Rate Limiting | select | `None` | Throttles between operations: None, Low, Medium or High. Use it if a large sync makes Dispatcharr sluggish. |
 | Custom Channel Aliases (JSON) | string | *(empty)* | Your own alias overrides. See [Custom aliases](#custom-aliases). |
 | EPG Sources | select | `All EPG sources` | Which EPG source or sources to match against. "All" uses every source in the priority order configured in Dispatcharr. |
+| Send reports to Newsflasharr | boolean | `false` | Master switch for emailing reports. When off, reports are still written to disk and nothing is sent. See [Reports](#reports). |
+| When to send | select | `Never` | Never, or after every run that produces a report. |
+| What to attach | select | `Both the HTML page and the CSV` | Which report files are emailed. Both means two emails, because one notification carries one attachment. |
 
 ---
 
@@ -139,6 +143,7 @@ live on the Actions tab of the plugin panel:
 | **Assign Logos** | Assigns channel logos from EPG icons, the Logo Manager, or the tv-logos repository on GitHub. |
 | **Re-sort Streams by Quality** | Re-orders already-attached streams using the newest quality data. See [IPTV Checker integration](#iptv-checker-integration). |
 | **Clear CSV Exports** | Deletes the plugin's CSV exports. |
+| **Email Report Now** | Sends the newest report already on disk. It does not run a match. See [Reports](#reports). |
 
 **Single Channel Match** scopes Preview Stream Match, Apply Stream Match Only,
 Apply EPG Match and Assign Logos to one channel. Full Sync always runs the whole
@@ -293,11 +298,88 @@ Five guards apply across all four:
 
 ---
 
+## Reports
+
+Every action that produces a CSV also writes a shareable report: one HTML page
+and one CSV, both named for the moment they were written, in
+`/data/lineuparr_reports` inside the container. The eight newest of each are
+kept and older ones are deleted.
+
+### What the page looks like
+
+The page opens as an index rather than as one long table. Rows are grouped into
+sections that all start collapsed, so you open the one you care about:
+
+| Section | What it holds |
+|---|---|
+| **Strong matches** | Scored 90 or above. Least likely to need a second look. |
+| **Worth checking** | Scored 60 to 89. Good enough to propose, not good enough to trust without reading. This is where your time goes. |
+| **Weak or no match** | Scored below 60, or nothing found at all. An alias is usually the fix. See [Custom aliases](#custom-aliases). |
+
+Each heading carries the number of rows in its own table. A report that has no
+score column, such as the channel sync preview, groups by status instead.
+
+Every table sorts by clicking a column heading, or by focusing it and pressing
+Enter. Sorting needs a browser: a mail client previewing the file shows every
+row but cannot reorder them.
+
+The page is one self-contained file with no external images, fonts or scripts,
+so it renders the same opened from disk, forwarded as an attachment, or read on
+a television browser with no internet connection. It follows your system's light
+or dark setting.
+
+### What is left out, deliberately
+
+Stream names in a report have their M3U source label removed, and the plugin
+settings that name your M3U sources are not included. On a real installation
+that label is your provider's hostname. The complete export, which does include
+it, stays in `/data/exports` inside the container and is never emailed.
+
+Reports are deliberately not written to `/data/logos`. Dispatcharr's web server
+publishes that directory to your whole local network with no password.
+
+### Emailing reports
+
+Reports are delivered by the separate **Newsflasharr** plugin, which handles the
+mail account. Lineuparr never sends mail itself.
+
+Turn on **Send reports to Newsflasharr** in the settings, choose whether to send
+on every run or never, and choose the HTML page, the CSV, or both. Sending both
+produces two emails, because one notification carries one attachment.
+
+Set up a routing rule in Newsflasharr matching source `lineuparr` and event
+`usage_report`, sending to the mail channel. **Mark the rule exclusive.** Without
+that, Newsflasharr adds its default channel as well and the report goes to two
+places.
+
+**Email Report Now** sends the newest report already on disk. It does not run a
+match, because a match takes minutes and the button asks to send a report rather
+than to produce one.
+
+### The report count
+
+The plugin writes the number of reports it has built to
+`/data/lineuparr/report_count.json`. Newsflasharr's Show Status action reads it
+and prints the count next to this plugin. Nothing else uses it.
+
+It counts reports whose files reached the disk, so a run that failed to write
+one does not increase it. It is not a delivery count: a report built while
+emailing is switched off still counts. The number is a floor rather than an
+exact total, because two reports finishing at the same instant can lose a count
+between them.
+
+A plugin appears in that Newsflasharr readout only after it has delivered at
+least one report through Newsflasharr, whatever the count file says.
+
+---
+
 ## File locations
 
 | What | Where |
 |---|---|
 | CSV exports | `/data/exports/lineuparr_*.csv`, kept across container restarts |
+| Reports | `/data/lineuparr_reports/lineuparr_report_*.html` and `*.csv`, eight of each kept |
+| Report count | `/data/lineuparr/report_count.json`, read by Newsflasharr |
 | Plugin directory | `/data/plugins/lineuparr/` inside the Dispatcharr data volume |
 | Lineup files | the same plugin directory, named `{CC}_{Provider}_lineup.json` |
 | Logs | `docker logs dispatcharr \| grep "Lineuparr"` |
