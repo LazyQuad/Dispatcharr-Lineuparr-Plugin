@@ -21,30 +21,27 @@
 ![License](https://img.shields.io/github/license/PiratesIRC/Dispatcharr-Lineuparr-Plugin)
 
 ## Warning: Backup Your Database
+
 Before installing or using this plugin, it is **highly recommended** that you create a backup of your Dispatcharr database. This plugin creates and modifies channel groups, channels, and stream assignments.
 
 **[Click here for instructions on how to back up your database.](https://dispatcharr.github.io/Dispatcharr-Docs/troubleshooting/?h=backup#how-can-i-make-a-backup-of-the-database)**
 
-## Features
+## What it does
 
-- **Provider Lineup Sync:** Create channel groups and channels that mirror real TV provider packages
-- **Fuzzy Stream Matching:** 4-stage matching pipeline (alias, exact, substring, fuzzy token-sort) with length-scaled thresholds and US broadcast-callsign anchoring to minimize false positives
-- **Non-Destructive Add Mode:** Optionally append matched streams without deleting existing streams or removing unmatched channels -- safely add a second M3U source
-- **Single-Channel Targeting:** Optionally scope stream, EPG, and logo matching to one named lineup channel instead of the whole lineup
-- **EPG Assignment:** Fuzzy-match EPG data to channels and assign program guides from any configured EPG source
-- **Logo Assignment:** Auto-assign channel logos from EPG icons, Logo Manager, or the [tv-logos](https://github.com/tv-logo/tv-logos) GitHub repository
-- **Quality Ordering:** Automatically sort matched streams by quality (4K > UHD > FHD > HD > SD) using name-based detection or [IPTV Checker](https://github.com/PiratesIRC/Dispatcharr-IPTV-Checker-Plugin) metadata
-- **Channel Number Preservation:** Lineup channel numbers are stored and used for tiebreaking during matching
-- **East/West/Pacific Filtering:** Regional channel variants are matched to the correct regional streams
-- **Country-Aware Matching:** Streams whose name prefix indicates a different country than the active lineup are rejected automatically. Detection covers many real provider formats: parenthesized (`(IN) Bloomberg TV`, `(PLUTO Brazil) MTV`), separator (`UK: Discovery Channel`, `TR: 24 TV`), Unicode box-bar separator (`UK┃Discovery Channel`, `US│ESPN` using `┃` U+2503 or `│` U+2502), bare space (`US beIN SPORTS`), and country glued to a quality tag (`UKHD: Sky Sports`). Matching is **strict**: a lineup keeps only same-country or untagged streams. The sole cross-border exception is specific US Spanish-language networks (Univision, Telemundo, TUDN, etc.) that are genuinely the same feed tagged US or MX. FAST platform tags (Roku/Tubi/Pluto/Xumo/Plex), provider/category prefixes, and decorative Unicode quality badges are stripped for scoring but never treated as a country.
-- **Built-in Alias Table:** 200+ channel alias mappings for common IPTV naming variations (CNN US, Fox News Channel, ESPN 2, etc.)
-- **Custom Aliases:** User-configurable JSON alias overrides merged on top of built-in aliases
-- **Match Sensitivity Modes:** Relaxed, Normal, Strict, and Exact sensitivity presets
-- **Rate Limiting:** Configurable throttling between operations (None, Low, Medium, High) to reduce load on Dispatcharr
-- **CSV Preview/Export:** Dry-run stream matching with confidence scores exported to CSV for review before committing
-- **Channel Profile Support:** Automatically enable synced channels in selected channel profiles
-- **Real-Time Progress:** Live ETA and progress, checkable any time via the **Show Status** action -- no need to watch toast notifications or container logs
-- **Direct ORM Integration:** Runs inside Dispatcharr with direct database access -- no API credentials needed
+You pick a real provider lineup, such as Sky TV or DIRECTV Premier, and the plugin builds those channel groups and channels in Dispatcharr and attaches your own streams to them by name.
+
+- **Builds the lineup.** Channel groups and channels that mirror the provider's package, keeping the provider's channel numbers.
+- **Matches your streams to it.** A four stage pipeline: alias, exact, substring, then fuzzy token sort, with US broadcast callsign anchoring and length scaled thresholds to keep false positives down. Four sensitivity presets from Relaxed to Exact.
+- **Rejects streams from the wrong country.** A lineup keeps only same country or untagged streams. Detection covers the tag formats real providers use, including parenthesized, colon separated, box bar separated, bare space, and country glued to a quality tag.
+- **Knows about regional variants**, so an East, West or Pacific channel reaches the matching regional stream.
+- **Assigns EPG data and logos.** Programme guides from any configured EPG source, and logos from EPG icons, the Logo Manager, or the [tv-logos](https://github.com/tv-logo/tv-logos) repository.
+- **Orders streams by quality**, 4K before UHD before FHD before HD before SD, using the name or [IPTV Checker](https://github.com/PiratesIRC/Dispatcharr-IPTV-Checker-Plugin) metadata.
+- **Previews before it commits.** A dry run writes a CSV of what would match and how confidently, so you can read it first.
+- **Reports what it did.** A shareable HTML page and CSV per run, optionally emailed through the [Newsflasharr](https://github.com/PiratesIRC/Dispatcharr-Newsflasharr-Plugin) plugin.
+- **Adds without destroying.** An optional mode appends matched streams instead of replacing them, so a second M3U source can be layered on safely.
+- **Runs inside Dispatcharr** with direct database access, so no API credentials are needed.
+
+Over 200 built-in channel aliases, plus your own in JSON. Every setting and action is covered in the [user guide](docs/USER-GUIDE.md).
 
 ## Included Lineups
 
@@ -66,91 +63,59 @@ Before installing or using this plugin, it is **highly recommended** that you cr
 | `CA_Telus-Optik_lineup.json` | Telus Optik | CA | ~130 |
 | `NL_ODIDO_lineup.json` | ODIDO | NL | ~155 |
 
-These are community-compiled channel lists based on publicly available provider lineup information. Custom lineup files can be created following the same JSON format and placed in the plugin directory.
+These are community-compiled channel lists based on publicly available provider lineup information. You can write your own: see the [lineup file format](docs/LINEUP-FORMAT.md).
 
 ## Requirements
 
-### Dispatcharr Setup
-- Active Dispatcharr installation (v0.20.0+)
+- Dispatcharr v0.20.0 or newer
 - At least one M3U source configured with streams
-- EPG sources configured (optional, for EPG matching)
+- EPG sources configured, optional, for EPG matching
 
-No API credentials are needed -- the plugin runs inside Dispatcharr with direct database access.
+No API credentials are needed. The plugin runs inside Dispatcharr with direct database access.
 
-## Installation
+## Install
 
-1. Log in to Dispatcharr's web UI
-2. Navigate to **Plugins**
-3. Click **Import Plugin** and upload the `Lineuparr.zip` file
-4. Enable the plugin after installation
+1. Log in to Dispatcharr's web interface.
+2. Go to **Plugins**.
+3. Click **Import Plugin** and upload `Lineuparr.zip`.
+4. Enable the plugin.
 
-### Updating the Plugin
+Then pick a lineup file and an M3U source, save, and run **Validate Settings** followed by **Preview Stream Match**. The [user guide](docs/USER-GUIDE.md#the-short-version) walks through it.
 
-1. **Remove Old Plugin**
-   - Navigate to **Plugins** in Dispatcharr
-   - Click the trash icon next to the old plugin
-   - Confirm deletion
+### Updating
 
-2. **Restart Dispatcharr**
-   - Log out of Dispatcharr
-   - Restart the Docker container:
-     ```bash
-     docker restart dispatcharr
-     ```
-
-3. **Install Updated Plugin**
-   - Log back into Dispatcharr
-   - Navigate to **Plugins**
-   - Click **Import Plugin** and upload the new plugin zip file
-   - Enable the plugin after installation
-
-4. **Verify Installation**
-   - Check that the plugin appears in the plugin list
-   - Reconfigure your settings if needed
+Remove the old plugin from the **Plugins** page, restart Dispatcharr (`docker restart dispatcharr`), then import the new zip and enable it. Your settings are kept, but check them after upgrading.
 
 ## Documentation
 
 | Page | What is in it |
 |---|---|
-| **[User guide](docs/USER-GUIDE.md)** | Every setting, every action, match sensitivity, country matching, custom aliases, troubleshooting, and how the matching pipeline works. |
+| **[User guide](docs/USER-GUIDE.md)** | Every setting, every action, match sensitivity, country matching, custom aliases, reports and emailing, file locations, troubleshooting, and how the matching pipeline works. |
 | **[Lineup file format](docs/LINEUP-FORMAT.md)** | Writing your own lineup: the JSON shape, the filename rule, per-channel aliases, and marking foreign channels. |
-
-## Usage in one minute
-
-1. Pick a **Lineup File** and an **M3U Source**, then save.
-2. Run **Validate Settings** to check the configuration and see the lineup summary.
-3. Run **Preview Stream Match**. Nothing is changed; a CSV lands in `/data/exports/` showing what would match and how confidently.
-4. If the preview looks right, run **Full Sync**.
-
-Full detail for each step, and for the other eight actions, is in the [user guide](docs/USER-GUIDE.md).
-
-## File Locations
-
-- **CSV Exports:** `/data/exports/lineuparr_*.csv` (persist across container restarts)
-- **Plugin Directory:** `/data/plugins/lineuparr/` (inside the Dispatcharr Docker data volume)
-- **Logs:** `docker logs dispatcharr | grep "Lineuparr"`
 
 ## Contributing
 
-### Reporting Issues
-When reporting issues:
-1. Include Dispatcharr version information
-2. Provide relevant container logs (`docker logs dispatcharr | grep "Lineuparr"`)
-3. Run **Preview Stream Match** and attach the CSV export -- this is the most helpful thing you can share. **Make sure no stream URLs are included in the CSV before sharing.**
-4. Note your **Match Sensitivity** setting and lineup file used
+### Reporting issues
 
-### Bumping the Plugin Version
-Version format: `1.26.{DDD}{HHMM}` (3-digit day-of-year + 4-digit UTC time). Both `Lineuparr/plugin.json` and `PluginConfig.PLUGIN_VERSION` in `Lineuparr/plugin.py` must stay in sync. Use the helper script to update both at once:
+1. Include your Dispatcharr version.
+2. Provide relevant container logs: `docker logs dispatcharr | grep "Lineuparr"`.
+3. Run **Preview Stream Match** and attach the CSV export. This is the most useful thing you can share. **Check that no stream URLs are in the CSV before sharing it**, because they can carry your provider credentials.
+4. Say which **Match Sensitivity** setting and lineup file you used.
 
-```bash
-python3 bump_version.py              # auto from current UTC time
-python3 bump_version.py 1.26.1031200 # explicit
-```
+### Submitting lineup databases
 
-### Submitting Lineup Databases
-Community-contributed lineups are welcome. The JSON shape and the filename rule are in the [lineup file format](docs/LINEUP-FORMAT.md); open a pull request with the file, or an issue with the provider name, country, channel list and where the listing came from.
+Community-contributed lineups are welcome. The JSON shape and the filename rule are in the [lineup file format](docs/LINEUP-FORMAT.md). Open a pull request with the file, or an issue giving the provider name, country, channel list and where the listing came from.
 
 If you would like a provider added but cannot build the file yourself, open a **Lineup Request** issue with the provider name, country, and a link to their channel listing page.
+
+### Bumping the plugin version
+
+Version format is `1.26.{DDD}{HHMM}`, a three digit day of year plus a four digit UTC time. Both `Lineuparr/plugin.json` and `PluginConfig.PLUGIN_VERSION` in `Lineuparr/plugin.py` must stay in step, so use the helper rather than editing them by hand:
+
+```bash
+python3 bump_version.py              # auto from the current UTC time
+python3 bump_version.py 1.26.1031200 # explicit
+```
 
 ---
 
