@@ -50,6 +50,7 @@ Over 200 built-in channel aliases, plus your own in JSON. Every setting and acti
 | `US_DirecTV-Premier_lineup.json` | DIRECTV Premier | US | ~350 |
 | `US_DISH-Top250_lineup.json` | DISH Top 250 | US | ~215 |
 | `US_Verizon-FIOS_lineup.json` | Verizon FiOS | US | ~200 |
+| `US_Verizon-FIOS-All-11743_lineup.json` | Verizon FiOS, every channel available at ZIP 11743 | US | ~512 |
 | `US_Combined_lineup.json` | US Combined (DIRECTV + DISH + Verizon) | US | ~465 |
 | `UK_Freeview_lineup.json` | Freeview | UK | ~160 |
 | `UK_SkyTV_lineup.json` | Sky TV | UK | ~175 |
@@ -64,6 +65,8 @@ Over 200 built-in channel aliases, plus your own in JSON. Every setting and acti
 | `NL_ODIDO_lineup.json` | ODIDO | NL | ~155 |
 
 These are community-compiled channel lists based on publicly available provider lineup information. You can write your own: see the [lineup file format](docs/LINEUP-FORMAT.md).
+
+The Verizon FiOS ZIP 11743 lineup is the one to look at if you are writing your own: 438 of its channels carry their own alias lists, which is the per-channel `aliases` array described in that format guide.
 
 ## Requirements
 
