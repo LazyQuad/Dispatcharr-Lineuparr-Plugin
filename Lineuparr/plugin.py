@@ -99,7 +99,7 @@ def _clean_json_text(s):
 
 
 class PluginConfig:
-    PLUGIN_VERSION = "1.26.2241618"
+    PLUGIN_VERSION = "1.26.2271705"
 
     DEFAULT_FUZZY_MATCH_THRESHOLD = 80
     DEFAULT_PRIORITIZE_QUALITY = True
@@ -3085,7 +3085,19 @@ class Plugin:
             logger.info(f"{LOG_PREFIX} Pre-filtered to {len(epg_data_with_programs)} EPG entries with program data (from {len(epg_data)} total)")
 
             if not epg_data_with_programs:
-                return {"status": "ok", "message": "No EPG entries have program data in the next 12 hours. Skipping EPG matching."}
+                # Do NOT stop here. Dispatcharr downloads programme data only for
+                # EPG entries that are already mapped to a channel, and mapping
+                # them is what this action does, so a source that has never been
+                # matched always has zero programmes. Stopping would make such a
+                # source permanently unmatchable. The second match pass below
+                # searches every entry regardless of programme data, so let the
+                # run continue and fall through to it.
+                logger.warning(
+                    f"{LOG_PREFIX} No EPG entry has programme data in the next 12 hours. "
+                    f"Matching against all {len(epg_data)} entries instead. This is normal "
+                    f"for an EPG source that has never been matched to a channel: Dispatcharr "
+                    f"fetches programmes only for mapped entries."
+                )
 
             # Build source ID -> name lookup for CSV
             epg_source_names = {}
