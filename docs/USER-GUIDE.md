@@ -109,7 +109,9 @@ ever reads the stream **name**, never its channel group, so:
 Channel Group Prefix and Channel Profile, choose a Match Sensitivity, and save.
 
 **2. Validate Settings.** Verifies the lineup file and the M3U source, and
-reports channel counts per category. Recommended.
+reports channel counts per category. It also warns when the channel group prefix
+or the EPG source filter names a different country from the lineup, and when an
+EPG source it would match against is switched off in Dispatcharr. Recommended.
 
 **3. Preview Stream Match.** A dry run. Shows what would match, with a
 confidence score, and writes a CSV to `/data/exports/`. Nothing is changed, so
@@ -204,6 +206,19 @@ country is dropped. That is what stops a Canadian feed attaching to a US channel
 Streams with no marker at all are kept, because they cannot be proven wrong and
 dropping them would break sources that never tag country.
 
+Some providers do not put a country in the stream name at all. They label by
+platform instead, so the same list carries `GO: ESPN`, `RK: VEVO POP` and
+`PRIME: SKY NEWS`, and none of those names says where the feed comes from. For
+those, the provider group the stream belongs to is read instead, because a group
+is normally named for its country, as in `AU| AUSTRALIA VIP` or `US| SPORT`.
+
+Two limits keep that from causing harm. The group is consulted only when the
+stream name itself says nothing, so a name that does carry a country is always
+judged on the name. And the group is ignored when acting on it would leave a
+channel with no candidate streams at all, so a provider whose groups are
+mislabelled loses nothing. A stream name appearing under groups of two different
+countries is treated as having no country rather than being assigned one.
+
 The lineup's country normally comes from its filename, `US_DirecTV-Premier_lineup.json`
 being US. Individual channels can override it, which is how you keep a block of
 foreign channels inside an otherwise single-country lineup. Both forms are in the
@@ -261,6 +276,19 @@ worker start and when the Plugins page is opened.
 - Confirm EPG sources are configured in Dispatcharr.
 - Run **Apply EPG Match** on its own to get the detailed log.
 - Read the logs: `docker logs dispatcharr | grep "Lineuparr"`.
+
+**A brand new EPG source works, and the log will say it is running degraded.**
+Dispatcharr downloads programme data only for guide entries that are already
+attached to a channel, and attaching them is what Apply EPG Match does, so a
+source you have just added always starts with no programme data. Matching runs
+against every entry in that case and logs a warning saying so. Once channels are
+attached, the refresh that follows fills the programme data in.
+
+**Check whether the source is switched on.** Matching reads guide entries whether
+or not their source is enabled, and Dispatcharr never refreshes a disabled
+source, so a channel matched to one keeps a guide that quietly stops being
+updated. **Validate Settings** lists any source in your filter that is switched
+off.
 
 ### Progress not updating
 
