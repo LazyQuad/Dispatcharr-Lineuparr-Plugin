@@ -462,13 +462,20 @@ COUNTRY_ALIASES = {
         # number. Every right-hand name below was read off a live install on
         # 2026-08-15, not guessed.
         #
-        # These are AU-scoped rather than global for two reasons. "CNN
-        # International" reaching a bare "CNN" is correct in Australia, where the
-        # carried feed IS CNN International, and wrong in the United States,
-        # where CNN is a separate domestic channel. And stripping a trailing
-        # "National" in normalize_name instead would damage "YES National" and
-        # "Sportsnet New York National" in the US lineups, which are genuinely
-        # different channels from "YES" and "Sportsnet New York".
+        # These are AU-scoped rather than global for two reasons. "ESPN"
+        # reaching "ESPN 1" is correct in Australia, where the carried feed is
+        # numbered, and wrong in the United States and the United Kingdom, where
+        # ESPN is not. And stripping a trailing "National" in normalize_name
+        # instead would damage "YES National" and "Sportsnet New York National"
+        # in the US lineups, which are genuinely different channels from "YES"
+        # and "Sportsnet New York".
+        #
+        # DELIBERATELY ABSENT: "CNN International" -> "CNN". It won the guide
+        # entry, and it also reached the United States stream "GO: CNN", which
+        # then attached as a backup feed carrying different programming. The
+        # alias table applies to streams and guide entries alike with no way to
+        # scope an entry to one of them, so the guide is not worth the wrong
+        # stream. Operator decision, 2026-08-15.
         "ABC News": ["ABC News Australia"],
         "Racing.com": ["Racing.com National"],
         "SBS Food": ["SBS Food National"],
@@ -481,7 +488,6 @@ COUNTRY_ALIASES = {
         # entry per capital city (Sydney, Melbourne, Brisbane, Perth, Adelaide,
         # Hobart) carrying the same schedule, so one of them is picked.
         "NITV": ["NITV Sydney"],
-        "CNN International": ["CNN"],
     },
     "FR": {
         # TLC France airs on the former Discovery Science feed; some French
