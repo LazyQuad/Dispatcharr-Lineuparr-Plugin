@@ -1,0 +1,6341 @@
+{
+  "package": "Spectrum Tampa Bay - No Spanish",
+  "date": "2026-08-18",
+  "description": "Curated Spectrum Tampa Bay logical-channel lineup excluding Spanish-language channels.",
+  "source": "Spectrum/Gracenote USA-FL09665-L; Tampa Bay channel mapping cross-checked against TV Passport; alias conventions cross-referenced against Lineuparr US_Verizon-FIOS-All-11743_lineup.json.",
+  "notes": "One logical entry per channel: confirmed Spectrum SD/HD/digital simulcasts are consolidated to the primary channel number. Non-linear On Demand, preview/demo and PPV service entries are removed. Aliases preserve Spectrum/Gracenote call signs and station IDs and add portable aliases cross-referenced from Lineuparr's recommended Verizon Fios All reference; provider-specific Verizon/New York aliases are excluded. Generic affiliate-only aliases such as PBS, NBC, ABC, CBS and FOX are intentionally excluded.",
+  "categories": {
+    "Local": [
+      {
+        "name": "WCLF",
+        "number": 2,
+        "aliases": [
+          "WCLFDT",
+          "WCLF-TV",
+          "11351",
+          "42627",
+          "2 WCLF"
+        ],
+        "epg_ids": [
+          "11351",
+          "42627"
+        ]
+      },
+      {
+        "name": "WEDU",
+        "number": 3,
+        "aliases": [
+          "WEDUDT",
+          "WEDU-TV",
+          "11407",
+          "35193",
+          "3 WEDU"
+        ],
+        "epg_ids": [
+          "11407",
+          "35193"
+        ]
+      },
+      {
+        "name": "WTOG",
+        "number": 4,
+        "aliases": [
+          "WTOGDT",
+          "WTOG-TV",
+          "11894",
+          "30617",
+          "4 WTOG"
+        ],
+        "epg_ids": [
+          "11894",
+          "30617"
+        ]
+      },
+      {
+        "name": "WFTT",
+        "number": 5,
+        "aliases": [
+          "WFTTDT",
+          "WFTT-TV",
+          "11249",
+          "50307",
+          "5 WFTT"
+        ],
+        "epg_ids": [
+          "11249",
+          "50307"
+        ]
+      },
+      {
+        "name": "WTTA",
+        "number": 6,
+        "aliases": [
+          "WTTADT",
+          "WTTA-TV",
+          "11903",
+          "36145",
+          "6 WTTA"
+        ],
+        "epg_ids": [
+          "11903",
+          "36145"
+        ]
+      },
+      {
+        "name": "WFLA-TV",
+        "number": 8,
+        "aliases": [
+          "WFLA",
+          "WFLADT",
+          "11437",
+          "21222",
+          "8 WFLA"
+        ],
+        "epg_ids": [
+          "11437",
+          "21222"
+        ]
+      },
+      {
+        "name": "Bay News 9",
+        "number": 9,
+        "aliases": [
+          "BAY9",
+          "BAY9DT",
+          "19997",
+          "70271",
+          "9 BAY9"
+        ],
+        "epg_ids": [
+          "19997",
+          "70271"
+        ]
+      },
+      {
+        "name": "WTSP",
+        "number": 10,
+        "aliases": [
+          "WTSPDT",
+          "WTSP-TV",
+          "11902",
+          "20495",
+          "10 WTSP"
+        ],
+        "epg_ids": [
+          "11902",
+          "20495"
+        ]
+      },
+      {
+        "name": "WFTS-TV",
+        "number": 11,
+        "aliases": [
+          "WFTS",
+          "WFTSDT",
+          "11447",
+          "21224",
+          "11 WFTS"
+        ],
+        "epg_ids": [
+          "11447",
+          "21224"
+        ]
+      },
+      {
+        "name": "WMOR",
+        "number": 12,
+        "aliases": [
+          "WMORDT",
+          "WMOR-TV",
+          "11891",
+          "33689",
+          "12 WMOR"
+        ],
+        "epg_ids": [
+          "11891",
+          "33689"
+        ]
+      },
+      {
+        "name": "WTVT",
+        "number": 13,
+        "aliases": [
+          "WTVTDT",
+          "WTVT-TV",
+          "11922",
+          "21223",
+          "13 WTVT"
+        ],
+        "epg_ids": [
+          "11922",
+          "21223"
+        ]
+      },
+      {
+        "name": "WXPX-TV",
+        "number": 17,
+        "aliases": [
+          "WXPX",
+          "WXPXDT",
+          "15034",
+          "34842",
+          "17 WXPX"
+        ],
+        "epg_ids": [
+          "15034",
+          "34842"
+        ]
+      },
+      {
+        "name": "WTVTDT3",
+        "number": 603,
+        "aliases": [
+          "WTVTDT3 BUZZR",
+          "WTVTDT3-TV",
+          "94323",
+          "603 WTVTDT3"
+        ],
+        "epg_ids": [
+          "94323"
+        ]
+      },
+      {
+        "name": "WEDUDT3",
+        "number": 604,
+        "aliases": [
+          "WEDUDT3 NHKWRLD",
+          "WEDUDT3-TV",
+          "56655",
+          "604 WEDUDT3"
+        ],
+        "epg_ids": [
+          "56655"
+        ]
+      },
+      {
+        "name": "WEDUDT2",
+        "number": 606,
+        "aliases": [
+          "WEDUDT2 WORLD",
+          "WEDUDT2-TV",
+          "35223",
+          "606 WEDUDT2"
+        ],
+        "epg_ids": [
+          "35223"
+        ]
+      },
+      {
+        "name": "WFLADT2",
+        "number": 607,
+        "aliases": [
+          "WFLADT2 CHARGE",
+          "WFLADT2-TV",
+          "43841",
+          "607 WFLADT2"
+        ],
+        "epg_ids": [
+          "43841"
+        ]
+      },
+      {
+        "name": "WFTSDT3",
+        "number": 608,
+        "aliases": [
+          "WFTSDT3 GRIT",
+          "WFTSDT3-TV",
+          "91890",
+          "608 WFTSDT3"
+        ],
+        "epg_ids": [
+          "91890"
+        ]
+      },
+      {
+        "name": "WTTA2",
+        "number": 609,
+        "aliases": [
+          "WTTADT2",
+          "WTTADT2 COZITV",
+          "WTTADT2-TV",
+          "50311",
+          "609 WTTADT2"
+        ],
+        "epg_ids": [
+          "50311"
+        ]
+      },
+      {
+        "name": "WTSP3",
+        "number": 611,
+        "aliases": [
+          "WTSPDT3",
+          "WTSPDT3 CRIME",
+          "WTSPDT3-TV",
+          "91455",
+          "611 WTSPDT3"
+        ],
+        "epg_ids": [
+          "91455"
+        ]
+      },
+      {
+        "name": "WTVT2",
+        "number": 613,
+        "aliases": [
+          "WTVTDT2",
+          "WTVTDT2 MVIES",
+          "WTVTDT2-TV",
+          "62802",
+          "613 WTVTDT2"
+        ],
+        "epg_ids": [
+          "62802"
+        ]
+      },
+      {
+        "name": "HEROICN",
+        "number": 614,
+        "aliases": [
+          "90401",
+          "614 HEROICN"
+        ],
+        "epg_ids": [
+          "90401"
+        ]
+      },
+      {
+        "name": "WXPXDT2",
+        "number": 615,
+        "aliases": [
+          "WXPXDT2 ION",
+          "WXPXDT2-TV",
+          "43324",
+          "615 WXPXDT2"
+        ],
+        "epg_ids": [
+          "43324"
+        ]
+      },
+      {
+        "name": "WXPXDT4",
+        "number": 616,
+        "aliases": [
+          "WXPXDT4 LAFF",
+          "WXPXDT4-TV",
+          "43330",
+          "616 WXPXDT4"
+        ],
+        "epg_ids": [
+          "43330"
+        ]
+      },
+      {
+        "name": "WEDQDT5",
+        "number": 617,
+        "aliases": [
+          "WEDQDT5 HD06",
+          "WEDQDT5-TV",
+          "35226",
+          "617 WEDQDT5"
+        ],
+        "epg_ids": [
+          "35226"
+        ]
+      },
+      {
+        "name": "WEDUDT6",
+        "number": 618,
+        "aliases": [
+          "WEDUDT6 CREATE",
+          "WEDUDT6-TV",
+          "105774",
+          "618 WEDUDT6"
+        ],
+        "epg_ids": [
+          "105774"
+        ]
+      },
+      {
+        "name": "WFLADT3",
+        "number": 619,
+        "aliases": [
+          "WFLADT3 ANTENNA",
+          "WFLADT3-TV",
+          "43843",
+          "619 WFLADT3"
+        ],
+        "epg_ids": [
+          "43843"
+        ]
+      },
+      {
+        "name": "WTSPDT4",
+        "number": 620,
+        "aliases": [
+          "WTSPDT4 THENEST",
+          "WTSPDT4-TV",
+          "107046",
+          "620 WTSPDT4"
+        ],
+        "epg_ids": [
+          "107046"
+        ]
+      },
+      {
+        "name": "FLACHAN",
+        "number": 623,
+        "aliases": [
+          "35219",
+          "623 FLACHAN"
+        ],
+        "epg_ids": [
+          "35219"
+        ]
+      },
+      {
+        "name": "WFTSDT2",
+        "number": 629,
+        "aliases": [
+          "WFTSDT2 BOUNCE",
+          "WFTSDT2-TV",
+          "50359",
+          "629 WFTSDT2"
+        ],
+        "epg_ids": [
+          "50359"
+        ]
+      },
+      {
+        "name": "WMORDT2",
+        "number": 630,
+        "aliases": [
+          "WMORDT2 METVN",
+          "WMORDT2-TV",
+          "62896",
+          "630 WMORDT2"
+        ],
+        "epg_ids": [
+          "62896"
+        ]
+      },
+      {
+        "name": "MYX",
+        "number": 633,
+        "aliases": [
+          "55451",
+          "633 MYX"
+        ],
+        "epg_ids": [
+          "55451"
+        ]
+      },
+      {
+        "name": "WPDSLP",
+        "number": 635,
+        "aliases": [
+          "WPDSLP-TV",
+          "20015",
+          "635 WPDSLP"
+        ],
+        "epg_ids": [
+          "20015"
+        ]
+      },
+      {
+        "name": "SPCTV",
+        "number": 636,
+        "aliases": [
+          "60491",
+          "636 SPCTV"
+        ],
+        "epg_ids": [
+          "60491"
+        ]
+      },
+      {
+        "name": "PCCTV",
+        "number": 637,
+        "aliases": [
+          "19882",
+          "637 PCCTV"
+        ],
+        "epg_ids": [
+          "19882"
+        ]
+      },
+      {
+        "name": "CITYG",
+        "number": 643,
+        "aliases": [
+          "19881",
+          "643 CITYG"
+        ],
+        "epg_ids": [
+          "19881"
+        ]
+      },
+      {
+        "name": "WEDQDT4",
+        "number": 1016,
+        "aliases": [
+          "WEDQDT4-TV",
+          "56744",
+          "1016 WEDQDT4"
+        ],
+        "epg_ids": [
+          "56744"
+        ]
+      },
+      {
+        "name": "WSNNLD",
+        "number": 1020,
+        "aliases": [
+          "WSNNLD MNT",
+          "WSNNLD-TV",
+          "75548",
+          "1020 WSNNLD"
+        ],
+        "epg_ids": [
+          "75548"
+        ]
+      }
+    ],
+    "News": [
+      {
+        "name": "CNN",
+        "number": 29,
+        "aliases": [
+          "CNNHD",
+          "10142",
+          "58646",
+          "29 CNN",
+          "US: CNN HD",
+          "cnn.us",
+          "US: CNN 4K",
+          "CNN HD"
+        ],
+        "epg_ids": [
+          "10142",
+          "58646"
+        ]
+      },
+      {
+        "name": "HLN",
+        "number": 30,
+        "aliases": [
+          "HLNHD",
+          "10145",
+          "64549",
+          "30 HLN"
+        ],
+        "epg_ids": [
+          "10145",
+          "64549"
+        ]
+      },
+      {
+        "name": "CNBC",
+        "number": 42,
+        "aliases": [
+          "CNBCFL",
+          "92081",
+          "42 CNBCFL",
+          "US: CNBC HD",
+          "CNBC.us",
+          "CNBCHD",
+          "CNBC HD"
+        ],
+        "epg_ids": [
+          "92081"
+        ]
+      },
+      {
+        "name": "The Weather Channel",
+        "number": 63,
+        "aliases": [
+          "WEATH",
+          "WEA",
+          "WEATHHD",
+          "WEATH-TV",
+          "11187",
+          "58812",
+          "63 WEATH"
+        ],
+        "epg_ids": [
+          "11187",
+          "58812"
+        ]
+      },
+      {
+        "name": "Bloomberg Television",
+        "number": 127,
+        "aliases": [
+          "BLOOM",
+          "BLOOMHD",
+          "14755",
+          "71799",
+          "127 BLOOM"
+        ],
+        "epg_ids": [
+          "14755",
+          "71799"
+        ]
+      },
+      {
+        "name": "i24NEWS",
+        "number": 128,
+        "aliases": [
+          "I24NWEN",
+          "87376",
+          "128 I24NWEN"
+        ],
+        "epg_ids": [
+          "87376"
+        ]
+      },
+      {
+        "name": "OANHD",
+        "number": 129,
+        "aliases": [
+          "83953",
+          "129 OANHD"
+        ],
+        "epg_ids": [
+          "83953"
+        ]
+      },
+      {
+        "name": "CNBC World",
+        "number": 141,
+        "aliases": [
+          "CNBCWLD",
+          "CNBCW",
+          "26849",
+          "141 CNBCWLD"
+        ],
+        "epg_ids": [
+          "26849"
+        ]
+      },
+      {
+        "name": "FOX Business Network",
+        "number": 149,
+        "aliases": [
+          "FBNHD",
+          "FBN",
+          "58649",
+          "58718",
+          "149 FBN",
+          "US: FOX BUSINESS NETWORK HD",
+          "FoxBusiness.us",
+          "foxbusiness.us"
+        ],
+        "epg_ids": [
+          "58649",
+          "58718"
+        ]
+      },
+      {
+        "name": "CSPAN",
+        "number": 175,
+        "aliases": [
+          "CSPANHD",
+          "10161",
+          "68344",
+          "175 CSPAN"
+        ],
+        "epg_ids": [
+          "10161",
+          "68344"
+        ]
+      },
+      {
+        "name": "CSPAN2",
+        "number": 176,
+        "aliases": [
+          "10162",
+          "176 CSPAN2"
+        ],
+        "epg_ids": [
+          "10162"
+        ]
+      },
+      {
+        "name": "CSPAN3",
+        "number": 177,
+        "aliases": [
+          "17665",
+          "177 CSPAN3"
+        ],
+        "epg_ids": [
+          "17665"
+        ]
+      },
+      {
+        "name": "NEWSNTN",
+        "number": 1018,
+        "aliases": [
+          "91096",
+          "1018 NEWSNTN"
+        ],
+        "epg_ids": [
+          "91096"
+        ]
+      },
+      {
+        "name": "NEWSMX",
+        "number": 1217,
+        "aliases": [
+          "87925",
+          "1217 NEWSMX"
+        ],
+        "epg_ids": [
+          "87925"
+        ]
+      },
+      {
+        "name": "CNBC",
+        "number": 1219,
+        "aliases": [
+          "CNBCFHD",
+          "92082",
+          "1219 CNBCFHD",
+          "US: CNBC HD",
+          "CNBC.us",
+          "CNBCHD",
+          "CNBC HD"
+        ],
+        "epg_ids": [
+          "92082"
+        ]
+      },
+      {
+        "name": "I24NEHD",
+        "number": 1224,
+        "aliases": [
+          "102309",
+          "1224 I24NEHD"
+        ],
+        "epg_ids": [
+          "102309"
+        ]
+      }
+    ],
+    "Sports": [
+      {
+        "name": "ESPN",
+        "number": 27,
+        "aliases": [
+          "ESPNTPA",
+          "77570",
+          "27 ESPNTPA",
+          "US: ESPN HD",
+          "ESPN.us",
+          "ESPNHD",
+          "ESPN HD"
+        ],
+        "epg_ids": [
+          "77570"
+        ]
+      },
+      {
+        "name": "GOLF",
+        "number": 67,
+        "aliases": [
+          "GOLFHD",
+          "14899",
+          "61854",
+          "67 GOLF"
+        ],
+        "epg_ids": [
+          "14899",
+          "61854"
+        ]
+      },
+      {
+        "name": "SEC Network",
+        "number": 72,
+        "aliases": [
+          "SEC",
+          "89535",
+          "72 SEC"
+        ],
+        "epg_ids": [
+          "89535"
+        ]
+      },
+      {
+        "name": "FOX Sports 1",
+        "number": 112,
+        "aliases": [
+          "FS1HD",
+          "FS1",
+          "82541",
+          "82547",
+          "112 FS1",
+          "US: FOX SPORTS 1 HD",
+          "US: FOX SPORTS 1",
+          "FoxSports1.us",
+          "FOX SPORTS 1 HD",
+          "Fox Sports 1 HD"
+        ],
+        "epg_ids": [
+          "82541",
+          "82547"
+        ]
+      },
+      {
+        "name": "ESPNews",
+        "number": 150,
+        "aliases": [
+          "ESPNEWS",
+          "16485",
+          "150 ESPNEWS",
+          "ESPNWHD",
+          "ESPNews HD"
+        ],
+        "epg_ids": [
+          "16485"
+        ]
+      },
+      {
+        "name": "ESPNU",
+        "number": 151,
+        "aliases": [
+          "ESPNUHD",
+          "45654",
+          "60696",
+          "151 ESPNU"
+        ],
+        "epg_ids": [
+          "45654",
+          "60696"
+        ]
+      },
+      {
+        "name": "TEAM01",
+        "number": 751,
+        "aliases": [
+          "TEAM1",
+          "20810",
+          "751 TEAM1"
+        ],
+        "epg_ids": [
+          "20810"
+        ]
+      },
+      {
+        "name": "TEAM02",
+        "number": 752,
+        "aliases": [
+          "TEAM2",
+          "20811",
+          "752 TEAM2"
+        ],
+        "epg_ids": [
+          "20811"
+        ]
+      },
+      {
+        "name": "TEAM03",
+        "number": 753,
+        "aliases": [
+          "TEAM3",
+          "20812",
+          "753 TEAM3"
+        ],
+        "epg_ids": [
+          "20812"
+        ]
+      },
+      {
+        "name": "TEAM04",
+        "number": 754,
+        "aliases": [
+          "TEAM4",
+          "21044",
+          "754 TEAM4"
+        ],
+        "epg_ids": [
+          "21044"
+        ]
+      },
+      {
+        "name": "TEAM5",
+        "number": 755,
+        "aliases": [
+          "21045",
+          "755 TEAM5"
+        ],
+        "epg_ids": [
+          "21045"
+        ]
+      },
+      {
+        "name": "TEAM06",
+        "number": 756,
+        "aliases": [
+          "TEAM6",
+          "21046",
+          "756 TEAM6"
+        ],
+        "epg_ids": [
+          "21046"
+        ]
+      },
+      {
+        "name": "TEAM07",
+        "number": 757,
+        "aliases": [
+          "TEAM7",
+          "21047",
+          "757 TEAM7"
+        ],
+        "epg_ids": [
+          "21047"
+        ]
+      },
+      {
+        "name": "TEAM08",
+        "number": 758,
+        "aliases": [
+          "TEAM8",
+          "21048",
+          "758 TEAM8"
+        ],
+        "epg_ids": [
+          "21048"
+        ]
+      },
+      {
+        "name": "TEAM09",
+        "number": 759,
+        "aliases": [
+          "TEAM9",
+          "21049",
+          "759 TEAM9"
+        ],
+        "epg_ids": [
+          "21049"
+        ]
+      },
+      {
+        "name": "TEAM10",
+        "number": 760,
+        "aliases": [
+          "TEA10",
+          "21115",
+          "760 TEA10"
+        ],
+        "epg_ids": [
+          "21115"
+        ]
+      },
+      {
+        "name": "GAME1",
+        "number": 771,
+        "aliases": [
+          "26197",
+          "771 GAME1"
+        ],
+        "epg_ids": [
+          "26197"
+        ]
+      },
+      {
+        "name": "GAME2",
+        "number": 772,
+        "aliases": [
+          "26198",
+          "772 GAME2"
+        ],
+        "epg_ids": [
+          "26198"
+        ]
+      },
+      {
+        "name": "GAME3",
+        "number": 773,
+        "aliases": [
+          "26199",
+          "773 GAME3"
+        ],
+        "epg_ids": [
+          "26199"
+        ]
+      },
+      {
+        "name": "GAME4",
+        "number": 774,
+        "aliases": [
+          "26200",
+          "774 GAME4"
+        ],
+        "epg_ids": [
+          "26200"
+        ]
+      },
+      {
+        "name": "GAME5",
+        "number": 775,
+        "aliases": [
+          "26201",
+          "775 GAME5"
+        ],
+        "epg_ids": [
+          "26201"
+        ]
+      },
+      {
+        "name": "GAME6",
+        "number": 776,
+        "aliases": [
+          "26202",
+          "776 GAME6"
+        ],
+        "epg_ids": [
+          "26202"
+        ]
+      },
+      {
+        "name": "GAME7",
+        "number": 777,
+        "aliases": [
+          "26203",
+          "777 GAME7"
+        ],
+        "epg_ids": [
+          "26203"
+        ]
+      },
+      {
+        "name": "GAME8",
+        "number": 778,
+        "aliases": [
+          "26204",
+          "778 GAME8"
+        ],
+        "epg_ids": [
+          "26204"
+        ]
+      },
+      {
+        "name": "GAME9",
+        "number": 779,
+        "aliases": [
+          "29093",
+          "779 GAME9"
+        ],
+        "epg_ids": [
+          "29093"
+        ]
+      },
+      {
+        "name": "GME10",
+        "number": 780,
+        "aliases": [
+          "31250",
+          "780 GME10"
+        ],
+        "epg_ids": [
+          "31250"
+        ]
+      },
+      {
+        "name": "GME11",
+        "number": 781,
+        "aliases": [
+          "53701",
+          "781 GME11"
+        ],
+        "epg_ids": [
+          "53701"
+        ]
+      },
+      {
+        "name": "GME12",
+        "number": 782,
+        "aliases": [
+          "53704",
+          "782 GME12"
+        ],
+        "epg_ids": [
+          "53704"
+        ]
+      },
+      {
+        "name": "GME13",
+        "number": 783,
+        "aliases": [
+          "53705",
+          "783 GME13"
+        ],
+        "epg_ids": [
+          "53705"
+        ]
+      },
+      {
+        "name": "GME14",
+        "number": 784,
+        "aliases": [
+          "53708",
+          "784 GME14"
+        ],
+        "epg_ids": [
+          "53708"
+        ]
+      },
+      {
+        "name": "SPO1CFL",
+        "number": 791,
+        "aliases": [
+          "21140",
+          "791 SPO1CFL"
+        ],
+        "epg_ids": [
+          "21140"
+        ]
+      },
+      {
+        "name": "SPO2CFL",
+        "number": 792,
+        "aliases": [
+          "21141",
+          "792 SPO2CFL"
+        ],
+        "epg_ids": [
+          "21141"
+        ]
+      },
+      {
+        "name": "SPO3CFL",
+        "number": 793,
+        "aliases": [
+          "21142",
+          "793 SPO3CFL"
+        ],
+        "epg_ids": [
+          "21142"
+        ]
+      },
+      {
+        "name": "SPO4CFL",
+        "number": 794,
+        "aliases": [
+          "21143",
+          "794 SPO4CFL"
+        ],
+        "epg_ids": [
+          "21143"
+        ]
+      },
+      {
+        "name": "SPO5CFL",
+        "number": 795,
+        "aliases": [
+          "21144",
+          "795 SPO5CFL"
+        ],
+        "epg_ids": [
+          "21144"
+        ]
+      },
+      {
+        "name": "SPO6CFL",
+        "number": 796,
+        "aliases": [
+          "21145",
+          "796 SPO6CFL"
+        ],
+        "epg_ids": [
+          "21145"
+        ]
+      },
+      {
+        "name": "NBA TV",
+        "number": 803,
+        "aliases": [
+          "NBAFL",
+          "NBA",
+          "77636",
+          "803 NBAFL"
+        ],
+        "epg_ids": [
+          "77636"
+        ]
+      },
+      {
+        "name": "Tennis Channel",
+        "number": 804,
+        "aliases": [
+          "TENNIS",
+          "TENN",
+          "33395",
+          "804 TENNIS"
+        ],
+        "epg_ids": [
+          "33395"
+        ]
+      },
+      {
+        "name": "Outdoor Channel",
+        "number": 805,
+        "aliases": [
+          "OUTD",
+          "OUT",
+          "14776",
+          "805 OUTD"
+        ],
+        "epg_ids": [
+          "14776"
+        ]
+      },
+      {
+        "name": "FOX Sports 2",
+        "number": 806,
+        "aliases": [
+          "FS2HD",
+          "FS2",
+          "33178",
+          "59305",
+          "806 FS2",
+          "US: FOX SPORTS 2 HD",
+          "US: FOX SPORTS 2",
+          "FoxSports2.us",
+          "FOX SPORTS 2 HD",
+          "Fox Sports 2 HD"
+        ],
+        "epg_ids": [
+          "33178",
+          "59305"
+        ]
+      },
+      {
+        "name": "CBS Sports Network",
+        "number": 807,
+        "aliases": [
+          "CBSSN",
+          "CBSSNHD",
+          "16365",
+          "59250",
+          "807 CBSSN"
+        ],
+        "epg_ids": [
+          "16365",
+          "59250"
+        ]
+      },
+      {
+        "name": "NHL Network",
+        "number": 808,
+        "aliases": [
+          "NHLFL",
+          "NHL",
+          "NHLHDFL",
+          "77587",
+          "77588",
+          "808 NHLFL"
+        ],
+        "epg_ids": [
+          "77587",
+          "77588"
+        ]
+      },
+      {
+        "name": "Big Ten Network",
+        "number": 809,
+        "aliases": [
+          "BIGFLA",
+          "61160",
+          "809 BIGFLA"
+        ],
+        "epg_ids": [
+          "61160"
+        ]
+      },
+      {
+        "name": "MLB Network",
+        "number": 815,
+        "aliases": [
+          "MLBFL",
+          "MLBFLHD",
+          "77574",
+          "77573",
+          "815 MLBFL"
+        ],
+        "epg_ids": [
+          "77574",
+          "77573"
+        ]
+      },
+      {
+        "name": "BIGTENO",
+        "number": 820,
+        "aliases": [
+          "61135",
+          "820 BIGTENO"
+        ],
+        "epg_ids": [
+          "61135"
+        ]
+      },
+      {
+        "name": "BGTENO2",
+        "number": 821,
+        "aliases": [
+          "71198",
+          "821 BGTENO2"
+        ],
+        "epg_ids": [
+          "71198"
+        ]
+      },
+      {
+        "name": "NFL Network",
+        "number": 825,
+        "aliases": [
+          "NFLNET",
+          "34710",
+          "825 NFLNET"
+        ],
+        "epg_ids": [
+          "34710"
+        ]
+      },
+      {
+        "name": "NFL RedZone",
+        "number": 826,
+        "aliases": [
+          "NFLNRZ",
+          "NFLN",
+          "65024",
+          "826 NFLNRZ"
+        ],
+        "epg_ids": [
+          "65024"
+        ]
+      },
+      {
+        "name": "World Fishing Network",
+        "number": 827,
+        "aliases": [
+          "WFNUS",
+          "WFNUSHD",
+          "WFNUS-TV",
+          "63234",
+          "64046",
+          "827 WFNUS"
+        ],
+        "epg_ids": [
+          "63234",
+          "64046"
+        ]
+      },
+      {
+        "name": "FSP",
+        "number": 829,
+        "aliases": [
+          "66879",
+          "829 FSP"
+        ],
+        "epg_ids": [
+          "66879"
+        ]
+      },
+      {
+        "name": "beIN Sports",
+        "number": 831,
+        "aliases": [
+          "BEINS1",
+          "beINS",
+          "76942",
+          "831 BEINS1"
+        ],
+        "epg_ids": [
+          "76942"
+        ]
+      },
+      {
+        "name": "BGTENO3",
+        "number": 832,
+        "aliases": [
+          "71200",
+          "832 BGTENO3"
+        ],
+        "epg_ids": [
+          "71200"
+        ]
+      },
+      {
+        "name": "Willow",
+        "number": 835,
+        "aliases": [
+          "WILLOW",
+          "WILLOW-TV",
+          "68605",
+          "835 WILLOW"
+        ],
+        "epg_ids": [
+          "68605"
+        ]
+      },
+      {
+        "name": "RACER Network",
+        "number": 837,
+        "aliases": [
+          "RACER",
+          "RACERHD",
+          "45169",
+          "61036",
+          "837 RACER"
+        ],
+        "epg_ids": [
+          "45169",
+          "61036"
+        ]
+      },
+      {
+        "name": "FanDuel TV",
+        "number": 838,
+        "aliases": [
+          "FDUELTV",
+          "21345",
+          "838 FDUELTV"
+        ],
+        "epg_ids": [
+          "21345"
+        ]
+      },
+      {
+        "name": "ESPNHTP",
+        "number": 1127,
+        "aliases": [
+          "77572",
+          "1127 ESPNHTP"
+        ],
+        "epg_ids": [
+          "77572"
+        ]
+      },
+      {
+        "name": "ESPNWHD",
+        "number": 1129,
+        "aliases": [
+          "59976",
+          "1129 ESPNWHD"
+        ],
+        "epg_ids": [
+          "59976"
+        ]
+      },
+      {
+        "name": "BIGFLAH",
+        "number": 1138,
+        "aliases": [
+          "79660",
+          "1138 BIGFLAH"
+        ],
+        "epg_ids": [
+          "79660"
+        ]
+      },
+      {
+        "name": "NBAHFL",
+        "number": 1140,
+        "aliases": [
+          "77637",
+          "1140 NBAHFL"
+        ],
+        "epg_ids": [
+          "77637"
+        ]
+      },
+      {
+        "name": "MLBSZ",
+        "number": 1143,
+        "aliases": [
+          "MLBSZFL",
+          "75271",
+          "1143 MLBSZFL"
+        ],
+        "epg_ids": [
+          "75271"
+        ]
+      },
+      {
+        "name": "NFLHD",
+        "number": 1145,
+        "aliases": [
+          "45399",
+          "1145 NFLHD"
+        ],
+        "epg_ids": [
+          "45399"
+        ]
+      },
+      {
+        "name": "NFLNRZD",
+        "number": 1146,
+        "aliases": [
+          "65025",
+          "1146 NFLNRZD"
+        ],
+        "epg_ids": [
+          "65025"
+        ]
+      },
+      {
+        "name": "SEC Network",
+        "number": 1150,
+        "aliases": [
+          "SECH",
+          "89714",
+          "1150 SECH"
+        ],
+        "epg_ids": [
+          "89714"
+        ]
+      },
+      {
+        "name": "beIN Sports",
+        "number": 1163,
+        "aliases": [
+          "BEIN1HD",
+          "76950",
+          "1163 BEIN1HD"
+        ],
+        "epg_ids": [
+          "76950"
+        ]
+      },
+      {
+        "name": "ACC Network",
+        "number": 1205,
+        "aliases": [
+          "ACC",
+          "111871",
+          "1205 ACC"
+        ],
+        "epg_ids": [
+          "111871"
+        ]
+      },
+      {
+        "name": "SP1CFLH",
+        "number": 1791,
+        "aliases": [
+          "106178",
+          "1791 SP1CFLH"
+        ],
+        "epg_ids": [
+          "106178"
+        ]
+      },
+      {
+        "name": "SP2CFLH",
+        "number": 1792,
+        "aliases": [
+          "106179",
+          "1792 SP2CFLH"
+        ],
+        "epg_ids": [
+          "106179"
+        ]
+      },
+      {
+        "name": "SP3CFLH",
+        "number": 1793,
+        "aliases": [
+          "106180",
+          "1793 SP3CFLH"
+        ],
+        "epg_ids": [
+          "106180"
+        ]
+      },
+      {
+        "name": "SP4CFLH",
+        "number": 1794,
+        "aliases": [
+          "106181",
+          "1794 SP4CFLH"
+        ],
+        "epg_ids": [
+          "106181"
+        ]
+      },
+      {
+        "name": "SP5CFLH",
+        "number": 1795,
+        "aliases": [
+          "106182",
+          "1795 SP5CFLH"
+        ],
+        "epg_ids": [
+          "106182"
+        ]
+      },
+      {
+        "name": "SP6CFLH",
+        "number": 1796,
+        "aliases": [
+          "106183",
+          "1796 SP6CFLH"
+        ],
+        "epg_ids": [
+          "106183"
+        ]
+      },
+      {
+        "name": "TMHD1",
+        "number": 1801,
+        "aliases": [
+          "55597",
+          "1801 TMHD1"
+        ],
+        "epg_ids": [
+          "55597"
+        ]
+      },
+      {
+        "name": "TMHD2",
+        "number": 1802,
+        "aliases": [
+          "72809",
+          "1802 TMHD2"
+        ],
+        "epg_ids": [
+          "72809"
+        ]
+      },
+      {
+        "name": "TMHD3",
+        "number": 1803,
+        "aliases": [
+          "72831",
+          "1803 TMHD3"
+        ],
+        "epg_ids": [
+          "72831"
+        ]
+      },
+      {
+        "name": "TMHD4",
+        "number": 1804,
+        "aliases": [
+          "72832",
+          "1804 TMHD4"
+        ],
+        "epg_ids": [
+          "72832"
+        ]
+      },
+      {
+        "name": "TMHD5",
+        "number": 1805,
+        "aliases": [
+          "72833",
+          "1805 TMHD5"
+        ],
+        "epg_ids": [
+          "72833"
+        ]
+      },
+      {
+        "name": "TMHD6",
+        "number": 1806,
+        "aliases": [
+          "72834",
+          "1806 TMHD6"
+        ],
+        "epg_ids": [
+          "72834"
+        ]
+      },
+      {
+        "name": "TMHD7",
+        "number": 1807,
+        "aliases": [
+          "72835",
+          "1807 TMHD7"
+        ],
+        "epg_ids": [
+          "72835"
+        ]
+      },
+      {
+        "name": "TMHD8",
+        "number": 1808,
+        "aliases": [
+          "72836",
+          "1808 TMHD8"
+        ],
+        "epg_ids": [
+          "72836"
+        ]
+      },
+      {
+        "name": "TMHD9",
+        "number": 1809,
+        "aliases": [
+          "72837",
+          "1809 TMHD9"
+        ],
+        "epg_ids": [
+          "72837"
+        ]
+      },
+      {
+        "name": "GMHD1",
+        "number": 1810,
+        "aliases": [
+          "55596",
+          "1810 GMHD1"
+        ],
+        "epg_ids": [
+          "55596"
+        ]
+      },
+      {
+        "name": "GMHD2",
+        "number": 1811,
+        "aliases": [
+          "66112",
+          "1811 GMHD2"
+        ],
+        "epg_ids": [
+          "66112"
+        ]
+      },
+      {
+        "name": "GMHD3",
+        "number": 1812,
+        "aliases": [
+          "72810",
+          "1812 GMHD3"
+        ],
+        "epg_ids": [
+          "72810"
+        ]
+      },
+      {
+        "name": "GMHD4",
+        "number": 1813,
+        "aliases": [
+          "72824",
+          "1813 GMHD4"
+        ],
+        "epg_ids": [
+          "72824"
+        ]
+      },
+      {
+        "name": "GMHD5",
+        "number": 1814,
+        "aliases": [
+          "72825",
+          "1814 GMHD5"
+        ],
+        "epg_ids": [
+          "72825"
+        ]
+      },
+      {
+        "name": "GMHD6",
+        "number": 1815,
+        "aliases": [
+          "72826",
+          "1815 GMHD6"
+        ],
+        "epg_ids": [
+          "72826"
+        ]
+      },
+      {
+        "name": "GMHD7",
+        "number": 1816,
+        "aliases": [
+          "72827",
+          "1816 GMHD7"
+        ],
+        "epg_ids": [
+          "72827"
+        ]
+      },
+      {
+        "name": "GMHD8",
+        "number": 1817,
+        "aliases": [
+          "72828",
+          "1817 GMHD8"
+        ],
+        "epg_ids": [
+          "72828"
+        ]
+      },
+      {
+        "name": "GMHD9",
+        "number": 1818,
+        "aliases": [
+          "72829",
+          "1818 GMHD9"
+        ],
+        "epg_ids": [
+          "72829"
+        ]
+      }
+    ],
+    "Entertainment": [
+      {
+        "name": "NWSNTSD",
+        "number": 18,
+        "aliases": [
+          "91097",
+          "18 NWSNTSD"
+        ],
+        "epg_ids": [
+          "91097"
+        ]
+      },
+      {
+        "name": "TBS",
+        "number": 23,
+        "aliases": [
+          "TBSTPA",
+          "77582",
+          "23 TBSTPA",
+          "US: TBS HD",
+          "TBSHD",
+          "TBS HD"
+        ],
+        "epg_ids": [
+          "77582"
+        ]
+      },
+      {
+        "name": "ESPN2",
+        "number": 28,
+        "aliases": [
+          "ESP2TPA",
+          "77577",
+          "28 ESP2TPA",
+          "ESPN2HD",
+          "ESPN 2 HD"
+        ],
+        "epg_ids": [
+          "77577"
+        ]
+      },
+      {
+        "name": "USA Network",
+        "number": 32,
+        "aliases": [
+          "USAFL",
+          "USA",
+          "USAFLHD",
+          "92084",
+          "92086",
+          "32 USAFL",
+          "US: USA NETWORK HD",
+          "USANetwork.us",
+          "USAHD",
+          "USA HD"
+        ],
+        "epg_ids": [
+          "92084",
+          "92086"
+        ]
+      },
+      {
+        "name": "TNT",
+        "number": 33,
+        "aliases": [
+          "TNTHD",
+          "11164",
+          "42642",
+          "33 TNT",
+          "US: TNT HD",
+          "TNT.us",
+          "US: TNT SD",
+          "TNT HD"
+        ],
+        "epg_ids": [
+          "11164",
+          "42642"
+        ]
+      },
+      {
+        "name": "Fox News Channel",
+        "number": 37,
+        "aliases": [
+          "FNC",
+          "FNCHD",
+          "16374",
+          "60179",
+          "37 FNC",
+          "US: FOX NEWS HD",
+          "FoxNews.us",
+          "foxnews.us",
+          "US: FOX NEWS CHANNEL 4K",
+          "Fox News HD"
+        ],
+        "epg_ids": [
+          "16374",
+          "60179"
+        ]
+      },
+      {
+        "name": "MSNOW",
+        "number": 41,
+        "aliases": [
+          "MSNOWHD",
+          "16300",
+          "64241",
+          "41 MSNOW"
+        ],
+        "epg_ids": [
+          "16300",
+          "64241"
+        ]
+      },
+      {
+        "name": "Paramount Network",
+        "number": 43,
+        "aliases": [
+          "PAR",
+          "PARHD",
+          "11163",
+          "59186",
+          "43 PAR",
+          "US: PARAMOUNT HD",
+          "PARAMOUNT NETWORK"
+        ],
+        "epg_ids": [
+          "11163",
+          "59186"
+        ]
+      },
+      {
+        "name": "CMT",
+        "number": 45,
+        "aliases": [
+          "CMTV",
+          "CMTVHD",
+          "10138",
+          "59440",
+          "45 CMTV"
+        ],
+        "epg_ids": [
+          "10138",
+          "59440"
+        ]
+      },
+      {
+        "name": "A&E",
+        "number": 48,
+        "aliases": [
+          "AETV",
+          "AETVHD",
+          "10035",
+          "51529",
+          "48 AETV"
+        ],
+        "epg_ids": [
+          "10035",
+          "51529"
+        ]
+      },
+      {
+        "name": "TV Land",
+        "number": 49,
+        "aliases": [
+          "TVLAND",
+          "16123",
+          "49 TVLAND"
+        ],
+        "epg_ids": [
+          "16123"
+        ]
+      },
+      {
+        "name": "TRUTV",
+        "number": 55,
+        "aliases": [
+          "TRUTVHD",
+          "truTV",
+          "10153",
+          "64490",
+          "55 TRUTV"
+        ],
+        "epg_ids": [
+          "10153",
+          "64490"
+        ]
+      },
+      {
+        "name": "SYFY",
+        "number": 59,
+        "aliases": [
+          "SYFYHD",
+          "Syfy",
+          "11097",
+          "58623",
+          "59 SYFY"
+        ],
+        "epg_ids": [
+          "11097",
+          "58623"
+        ]
+      },
+      {
+        "name": "Comedy Central",
+        "number": 61,
+        "aliases": [
+          "COMEDY",
+          "10149",
+          "61 COMEDY"
+        ],
+        "epg_ids": [
+          "10149"
+        ]
+      },
+      {
+        "name": "VH1",
+        "number": 62,
+        "aliases": [
+          "VH1HD",
+          "11218",
+          "60046",
+          "62 VH1"
+        ],
+        "epg_ids": [
+          "11218",
+          "60046"
+        ]
+      },
+      {
+        "name": "MTV",
+        "number": 66,
+        "aliases": [
+          "MTVHD",
+          "10986",
+          "60964",
+          "66 MTV"
+        ],
+        "epg_ids": [
+          "10986",
+          "60964"
+        ]
+      },
+      {
+        "name": "WE tv",
+        "number": 69,
+        "aliases": [
+          "WE",
+          "16409",
+          "69 WE"
+        ],
+        "epg_ids": [
+          "16409"
+        ]
+      },
+      {
+        "name": "E!",
+        "number": 70,
+        "aliases": [
+          "E",
+          "10989",
+          "70 E"
+        ],
+        "epg_ids": [
+          "10989"
+        ]
+      },
+      {
+        "name": "BET",
+        "number": 71,
+        "aliases": [
+          "BETHD",
+          "10051",
+          "63236",
+          "71 BET"
+        ],
+        "epg_ids": [
+          "10051",
+          "63236"
+        ]
+      },
+      {
+        "name": "BBC America",
+        "number": 75,
+        "aliases": [
+          "BBCA",
+          "BBC",
+          "BBCAHD",
+          "18332",
+          "64492",
+          "75 BBCA"
+        ],
+        "epg_ids": [
+          "18332",
+          "64492"
+        ]
+      },
+      {
+        "name": "BET Soul",
+        "number": 96,
+        "aliases": [
+          "BETSOUL",
+          "Soul",
+          "18718",
+          "96 BETSOUL"
+        ],
+        "epg_ids": [
+          "18718"
+        ]
+      },
+      {
+        "name": "REVOLT",
+        "number": 97,
+        "aliases": [
+          "RVLT",
+          "RVLTHD",
+          "83097",
+          "83098",
+          "97 RVLT"
+        ],
+        "epg_ids": [
+          "83097",
+          "83098"
+        ]
+      },
+      {
+        "name": "Discovery Family",
+        "number": 102,
+        "aliases": [
+          "DFC",
+          "DFCHD",
+          "16618",
+          "67749",
+          "102 DFC"
+        ],
+        "epg_ids": [
+          "16618",
+          "67749"
+        ]
+      },
+      {
+        "name": "TWCTRV",
+        "number": 106,
+        "aliases": [
+          "87180",
+          "106 TWCTRV"
+        ],
+        "epg_ids": [
+          "87180"
+        ]
+      },
+      {
+        "name": "BET Her",
+        "number": 107,
+        "aliases": [
+          "BHER",
+          "BETHer",
+          "BHERHD",
+          "14897",
+          "63220",
+          "107 BHER"
+        ],
+        "epg_ids": [
+          "14897",
+          "63220"
+        ]
+      },
+      {
+        "name": "FUSE",
+        "number": 109,
+        "aliases": [
+          "FUSEHD",
+          "14929",
+          "59116",
+          "109 FUSE"
+        ],
+        "epg_ids": [
+          "14929",
+          "59116"
+        ]
+      },
+      {
+        "name": "GSN",
+        "number": 116,
+        "aliases": [
+          "GSNHD",
+          "14909",
+          "68827",
+          "116 GSN"
+        ],
+        "epg_ids": [
+          "14909",
+          "68827"
+        ]
+      },
+      {
+        "name": "FX",
+        "number": 119,
+        "aliases": [
+          "14321",
+          "119 FX",
+          "FX.us",
+          "US: FX HD",
+          "FXHD",
+          "FX HD (EAST)"
+        ],
+        "epg_ids": [
+          "14321"
+        ]
+      },
+      {
+        "name": "BBC World News",
+        "number": 123,
+        "aliases": [
+          "BBCWDNA",
+          "89542",
+          "123 BBCWDNA"
+        ],
+        "epg_ids": [
+          "89542"
+        ]
+      },
+      {
+        "name": "MTV2",
+        "number": 126,
+        "aliases": [
+          "MTV2HD",
+          "16361",
+          "75077",
+          "126 MTV2"
+        ],
+        "epg_ids": [
+          "16361",
+          "75077"
+        ]
+      },
+      {
+        "name": "FM",
+        "number": 132,
+        "aliases": [
+          "18262",
+          "132 FM"
+        ],
+        "epg_ids": [
+          "18262"
+        ]
+      },
+      {
+        "name": "Great American Family",
+        "number": 133,
+        "aliases": [
+          "GFAM",
+          "GFAMHD",
+          "16062",
+          "82892",
+          "133 GFAM"
+        ],
+        "epg_ids": [
+          "16062",
+          "82892"
+        ]
+      },
+      {
+        "name": "YTA",
+        "number": 134,
+        "aliases": [
+          "10982",
+          "134 YTA"
+        ],
+        "epg_ids": [
+          "10982"
+        ]
+      },
+      {
+        "name": "MTV Classic",
+        "number": 138,
+        "aliases": [
+          "MTVCLAS",
+          "MTV-C",
+          "22561",
+          "138 MTVCLAS"
+        ],
+        "epg_ids": [
+          "22561"
+        ]
+      },
+      {
+        "name": "Lifetime Real Women",
+        "number": 143,
+        "aliases": [
+          "LRW",
+          "29612",
+          "143 LRW"
+        ],
+        "epg_ids": [
+          "29612"
+        ]
+      },
+      {
+        "name": "UPtv",
+        "number": 145,
+        "aliases": [
+          "UP",
+          "44940",
+          "145 UP"
+        ],
+        "epg_ids": [
+          "44940"
+        ]
+      },
+      {
+        "name": "TV One",
+        "number": 146,
+        "aliases": [
+          "TVONE",
+          "TVONEHD",
+          "35513",
+          "61960",
+          "146 TVONE"
+        ],
+        "epg_ids": [
+          "35513",
+          "61960"
+        ]
+      },
+      {
+        "name": "LOGO",
+        "number": 147,
+        "aliases": [
+          "LOGOHD",
+          "46762",
+          "96971",
+          "147 LOGO"
+        ],
+        "epg_ids": [
+          "46762",
+          "96971"
+        ]
+      },
+      {
+        "name": "VICE",
+        "number": 152,
+        "aliases": [
+          "VICEHD",
+          "18822",
+          "65732",
+          "152 VICE"
+        ],
+        "epg_ids": [
+          "18822",
+          "65732"
+        ]
+      },
+      {
+        "name": "BET Jams",
+        "number": 154,
+        "aliases": [
+          "BETJ",
+          "30419",
+          "154 BETJ"
+        ],
+        "epg_ids": [
+          "30419"
+        ]
+      },
+      {
+        "name": "NMZK",
+        "number": 163,
+        "aliases": [
+          "30418",
+          "163 NMZK"
+        ],
+        "epg_ids": [
+          "30418"
+        ]
+      },
+      {
+        "name": "CLEO",
+        "number": 167,
+        "aliases": [
+          "CLEOHD",
+          "110288",
+          "110289",
+          "167 CLEO"
+        ],
+        "epg_ids": [
+          "110288",
+          "110289"
+        ]
+      },
+      {
+        "name": "TheGrio",
+        "number": 168,
+        "aliases": [
+          "GRIOE",
+          "GRIO",
+          "116533",
+          "168 GRIOE"
+        ],
+        "epg_ids": [
+          "116533"
+        ]
+      },
+      {
+        "name": "MILH",
+        "number": 169,
+        "aliases": [
+          "48999",
+          "169 MILH"
+        ],
+        "epg_ids": [
+          "48999"
+        ]
+      },
+      {
+        "name": "CIN",
+        "number": 170,
+        "aliases": [
+          "CINHD",
+          "48543",
+          "61469",
+          "170 CIN"
+        ],
+        "epg_ids": [
+          "48543",
+          "61469"
+        ]
+      },
+      {
+        "name": "DYSTR",
+        "number": 171,
+        "aliases": [
+          "DYSTRHD",
+          "19026",
+          "87001",
+          "171 DYSTR"
+        ],
+        "epg_ids": [
+          "19026",
+          "87001"
+        ]
+      },
+      {
+        "name": "WORD",
+        "number": 173,
+        "aliases": [
+          "WORD-TV",
+          "21781",
+          "173 WORD"
+        ],
+        "epg_ids": [
+          "21781"
+        ]
+      },
+      {
+        "name": "Pop",
+        "number": 178,
+        "aliases": [
+          "POPSD",
+          "POP",
+          "POPHD",
+          "16715",
+          "68796",
+          "178 POPSD"
+        ],
+        "epg_ids": [
+          "16715",
+          "68796"
+        ]
+      },
+      {
+        "name": "AspireTV",
+        "number": 180,
+        "aliases": [
+          "ASPRE",
+          "ASPiRE",
+          "ASPREHD",
+          "76126",
+          "97409",
+          "180 ASPRE"
+        ],
+        "epg_ids": [
+          "76126",
+          "97409"
+        ]
+      },
+      {
+        "name": "FOXWXSD",
+        "number": 181,
+        "aliases": [
+          "FOXWX",
+          "123194",
+          "93141",
+          "181 FOXWXSD"
+        ],
+        "epg_ids": [
+          "123194",
+          "93141"
+        ]
+      },
+      {
+        "name": "LOVE",
+        "number": 187,
+        "aliases": [
+          "71533",
+          "187 LOVE"
+        ],
+        "epg_ids": [
+          "71533"
+        ]
+      },
+      {
+        "name": "FETV",
+        "number": 192,
+        "aliases": [
+          "73413",
+          "192 FETV"
+        ],
+        "epg_ids": [
+          "73413"
+        ]
+      },
+      {
+        "name": "INSP",
+        "number": 196,
+        "aliases": [
+          "INSPHD",
+          "11066",
+          "82773",
+          "196 INSP"
+        ],
+        "epg_ids": [
+          "11066",
+          "82773"
+        ]
+      },
+      {
+        "name": "The Cowboy Channel",
+        "number": 198,
+        "aliases": [
+          "COWBOY",
+          "10188",
+          "198 COWBOY"
+        ],
+        "epg_ids": [
+          "10188"
+        ]
+      },
+      {
+        "name": "JEWISH",
+        "number": 330,
+        "aliases": [
+          "58400",
+          "330 JEWISH"
+        ],
+        "epg_ids": [
+          "58400"
+        ]
+      },
+      {
+        "name": "CARSTV",
+        "number": 334,
+        "aliases": [
+          "71302",
+          "334 CARSTV"
+        ],
+        "epg_ids": [
+          "71302"
+        ]
+      },
+      {
+        "name": "PETSTV",
+        "number": 336,
+        "aliases": [
+          "71297",
+          "336 PETSTV"
+        ],
+        "epg_ids": [
+          "71297"
+        ]
+      },
+      {
+        "name": "RECIPE",
+        "number": 337,
+        "aliases": [
+          "71294",
+          "337 RECIPE"
+        ],
+        "epg_ids": [
+          "71294"
+        ]
+      },
+      {
+        "name": "AFRCA",
+        "number": 369,
+        "aliases": [
+          "AFRCAHD",
+          "47472",
+          "68576",
+          "369 AFRCA"
+        ],
+        "epg_ids": [
+          "47472",
+          "68576"
+        ]
+      },
+      {
+        "name": "AWEHD",
+        "number": 376,
+        "aliases": [
+          "45438",
+          "376 AWEHD"
+        ],
+        "epg_ids": [
+          "45438"
+        ]
+      },
+      {
+        "name": "HERETV",
+        "number": 398,
+        "aliases": [
+          "45210",
+          "398 HERETV"
+        ],
+        "epg_ids": [
+          "45210"
+        ]
+      },
+      {
+        "name": "IMPACSD",
+        "number": 474,
+        "aliases": [
+          "138982",
+          "474 IMPACSD"
+        ],
+        "epg_ids": [
+          "138982"
+        ]
+      },
+      {
+        "name": "FREFMHD",
+        "number": 1112,
+        "aliases": [
+          "59615",
+          "1112 FREFMHD"
+        ],
+        "epg_ids": [
+          "59615"
+        ]
+      },
+      {
+        "name": "SONLFHD",
+        "number": 1116,
+        "aliases": [
+          "91314",
+          "1116 SONLFHD"
+        ],
+        "epg_ids": [
+          "91314"
+        ]
+      },
+      {
+        "name": "COWBOYH",
+        "number": 1120,
+        "aliases": [
+          "80597",
+          "1120 COWBOYH"
+        ],
+        "epg_ids": [
+          "80597"
+        ]
+      },
+      {
+        "name": "HFM",
+        "number": 1124,
+        "aliases": [
+          "105723",
+          "1124 HFM"
+        ],
+        "epg_ids": [
+          "105723"
+        ]
+      },
+      {
+        "name": "LNLC",
+        "number": 1126,
+        "aliases": [
+          "183475",
+          "1126 LNLC"
+        ],
+        "epg_ids": [
+          "183475"
+        ]
+      },
+      {
+        "name": "ESP2HTP",
+        "number": 1128,
+        "aliases": [
+          "77579",
+          "1128 ESP2HTP"
+        ],
+        "epg_ids": [
+          "77579"
+        ]
+      },
+      {
+        "name": "SPCTSN",
+        "number": 1134,
+        "aliases": [
+          "77423",
+          "1134 SPCTSN"
+        ],
+        "epg_ids": [
+          "77423"
+        ]
+      },
+      {
+        "name": "YESNATD",
+        "number": 1142,
+        "aliases": [
+          "63558",
+          "1142 YESNATD"
+        ],
+        "epg_ids": [
+          "63558"
+        ]
+      },
+      {
+        "name": "SUNNHD",
+        "number": 1148,
+        "aliases": [
+          "54994",
+          "1148 SUNNHD"
+        ],
+        "epg_ids": [
+          "54994"
+        ]
+      },
+      {
+        "name": "FDFL1HD",
+        "number": 1149,
+        "aliases": [
+          "65773",
+          "1149 FDFL1HD"
+        ],
+        "epg_ids": [
+          "65773"
+        ]
+      },
+      {
+        "name": "Tennis Channel",
+        "number": 1155,
+        "aliases": [
+          "TENISHD",
+          "60316",
+          "1155 TENISHD"
+        ],
+        "epg_ids": [
+          "60316"
+        ]
+      },
+      {
+        "name": "OUTHD",
+        "number": 1156,
+        "aliases": [
+          "46737",
+          "1156 OUTHD"
+        ],
+        "epg_ids": [
+          "46737"
+        ]
+      },
+      {
+        "name": "FSCPLHD",
+        "number": 1160,
+        "aliases": [
+          "66880",
+          "1160 FSCPLHD"
+        ],
+        "epg_ids": [
+          "66880"
+        ]
+      },
+      {
+        "name": "NESNATH",
+        "number": 1162,
+        "aliases": [
+          "67518",
+          "1162 NESNATH"
+        ],
+        "epg_ids": [
+          "67518"
+        ]
+      },
+      {
+        "name": "WLLOHD",
+        "number": 1165,
+        "aliases": [
+          "WLLOHD-TV",
+          "80621",
+          "1165 WLLOHD"
+        ],
+        "epg_ids": [
+          "80621"
+        ]
+      },
+      {
+        "name": "SPTSNLA",
+        "number": 1179,
+        "aliases": [
+          "87107",
+          "1179 SPTSNLA"
+        ],
+        "epg_ids": [
+          "87107"
+        ]
+      },
+      {
+        "name": "BTENOHD",
+        "number": 1192,
+        "aliases": [
+          "61143",
+          "1192 BTENOHD"
+        ],
+        "epg_ids": [
+          "61143"
+        ]
+      },
+      {
+        "name": "BG10O2H",
+        "number": 1193,
+        "aliases": [
+          "73115",
+          "1193 BG10O2H"
+        ],
+        "epg_ids": [
+          "73115"
+        ]
+      },
+      {
+        "name": "BGTN3HD",
+        "number": 1194,
+        "aliases": [
+          "82572",
+          "1194 BGTN3HD"
+        ],
+        "epg_ids": [
+          "82572"
+        ]
+      },
+      {
+        "name": "ACUWTHH",
+        "number": 1208,
+        "aliases": [
+          "91994",
+          "1208 ACUWTHH"
+        ],
+        "epg_ids": [
+          "91994"
+        ]
+      },
+      {
+        "name": "NY1HD",
+        "number": 1210,
+        "aliases": [
+          "60159",
+          "1210 NY1HD"
+        ],
+        "epg_ids": [
+          "60159"
+        ]
+      },
+      {
+        "name": "CHDDRHD",
+        "number": 1212,
+        "aliases": [
+          "109332",
+          "1212 CHDDRHD"
+        ],
+        "epg_ids": [
+          "109332"
+        ]
+      },
+      {
+        "name": "CFLNHD",
+        "number": 1213,
+        "aliases": [
+          "70273",
+          "1213 CFLNHD"
+        ],
+        "epg_ids": [
+          "70273"
+        ]
+      },
+      {
+        "name": "BBCNAHD",
+        "number": 1222,
+        "aliases": [
+          "89690",
+          "1222 BBCNAHD"
+        ],
+        "epg_ids": [
+          "89690"
+        ]
+      },
+      {
+        "name": "CSPN2HD",
+        "number": 1227,
+        "aliases": [
+          "68334",
+          "1227 CSPN2HD"
+        ],
+        "epg_ids": [
+          "68334"
+        ]
+      },
+      {
+        "name": "CSPN3HD",
+        "number": 1228,
+        "aliases": [
+          "68332",
+          "1228 CSPN3HD"
+        ],
+        "epg_ids": [
+          "68332"
+        ]
+      },
+      {
+        "name": "STELLAR",
+        "number": 1229,
+        "aliases": [
+          "130088",
+          "1229 STELLAR"
+        ],
+        "epg_ids": [
+          "130088"
+        ]
+      },
+      {
+        "name": "MTHD",
+        "number": 1235,
+        "aliases": [
+          "31046",
+          "1235 MTHD"
+        ],
+        "epg_ids": [
+          "31046"
+        ]
+      },
+      {
+        "name": "TBSHTPA",
+        "number": 1236,
+        "aliases": [
+          "77583",
+          "1236 TBSHTPA"
+        ],
+        "epg_ids": [
+          "77583"
+        ]
+      },
+      {
+        "name": "HERICNS",
+        "number": 1243,
+        "aliases": [
+          "110477",
+          "1243 HERICNS"
+        ],
+        "epg_ids": [
+          "110477"
+        ]
+      },
+      {
+        "name": "EARTHX",
+        "number": 1258,
+        "aliases": [
+          "126128",
+          "1258 EARTHX"
+        ],
+        "epg_ids": [
+          "126128"
+        ]
+      },
+      {
+        "name": "NGWIHD",
+        "number": 1262,
+        "aliases": [
+          "67331",
+          "1262 NGWIHD"
+        ],
+        "epg_ids": [
+          "67331"
+        ]
+      },
+      {
+        "name": "TWCTRVH",
+        "number": 1267,
+        "aliases": [
+          "87182",
+          "1267 TWCTRVH"
+        ],
+        "epg_ids": [
+          "87182"
+        ]
+      },
+      {
+        "name": "WEHD",
+        "number": 1272,
+        "aliases": [
+          "WEHD-TV",
+          "59296",
+          "1272 WEHD"
+        ],
+        "epg_ids": [
+          "59296"
+        ]
+      },
+      {
+        "name": "STRY",
+        "number": 1274,
+        "aliases": [
+          "122968",
+          "1274 STRY"
+        ],
+        "epg_ids": [
+          "122968"
+        ]
+      },
+      {
+        "name": "STARTTV",
+        "number": 1275,
+        "aliases": [
+          "109454",
+          "1275 STARTTV"
+        ],
+        "epg_ids": [
+          "109454"
+        ]
+      },
+      {
+        "name": "CHIMETV",
+        "number": 1276,
+        "aliases": [
+          "131889",
+          "1276 CHIMETV"
+        ],
+        "epg_ids": [
+          "131889"
+        ]
+      },
+      {
+        "name": "OVATNHD",
+        "number": 1277,
+        "aliases": [
+          "69061",
+          "1277 OVATNHD"
+        ],
+        "epg_ids": [
+          "69061"
+        ]
+      },
+      {
+        "name": "ENVOYTV",
+        "number": 1279,
+        "aliases": [
+          "192894",
+          "1279 ENVOYTV"
+        ],
+        "epg_ids": [
+          "192894"
+        ]
+      },
+      {
+        "name": "TV Land",
+        "number": 1281,
+        "aliases": [
+          "TVLNDHD",
+          "73541",
+          "1281 TVLNDHD"
+        ],
+        "epg_ids": [
+          "73541"
+        ]
+      },
+      {
+        "name": "FX",
+        "number": 1283,
+        "aliases": [
+          "FXHD",
+          "58574",
+          "1283 FXHD",
+          "FX.us",
+          "US: FX HD",
+          "FX HD (EAST)"
+        ],
+        "epg_ids": [
+          "58574"
+        ]
+      },
+      {
+        "name": "FXX",
+        "number": 1284,
+        "aliases": [
+          "FXXHD",
+          "66379",
+          "1284 FXXHD"
+        ],
+        "epg_ids": [
+          "66379"
+        ]
+      },
+      {
+        "name": "Comedy Central",
+        "number": 1292,
+        "aliases": [
+          "CCHD",
+          "62420",
+          "1292 CCHD"
+        ],
+        "epg_ids": [
+          "62420"
+        ]
+      },
+      {
+        "name": "E!",
+        "number": 1293,
+        "aliases": [
+          "EHD",
+          "61812",
+          "1293 EHD"
+        ],
+        "epg_ids": [
+          "61812"
+        ]
+      },
+      {
+        "name": "MTVL",
+        "number": 1300,
+        "aliases": [
+          "MTVLIVE",
+          "49141",
+          "1300 MTVLIVE"
+        ],
+        "epg_ids": [
+          "49141"
+        ]
+      },
+      {
+        "name": "AXSTV",
+        "number": 1303,
+        "aliases": [
+          "28506",
+          "1303 AXSTV"
+        ],
+        "epg_ids": [
+          "28506"
+        ]
+      },
+      {
+        "name": "FMHD",
+        "number": 1311,
+        "aliases": [
+          "72094",
+          "1311 FMHD"
+        ],
+        "epg_ids": [
+          "72094"
+        ]
+      },
+      {
+        "name": "UPtv",
+        "number": 1317,
+        "aliases": [
+          "UPHD",
+          "66143",
+          "1317 UPHD"
+        ],
+        "epg_ids": [
+          "66143"
+        ]
+      },
+      {
+        "name": "CARSTVH",
+        "number": 1334,
+        "aliases": [
+          "81270",
+          "1334 CARSTVH"
+        ],
+        "epg_ids": [
+          "81270"
+        ]
+      },
+      {
+        "name": "JUST",
+        "number": 1335,
+        "aliases": [
+          "78850",
+          "1335 JUST"
+        ],
+        "epg_ids": [
+          "78850"
+        ]
+      },
+      {
+        "name": "PETSTVH",
+        "number": 1336,
+        "aliases": [
+          "81283",
+          "1336 PETSTVH"
+        ],
+        "epg_ids": [
+          "81283"
+        ]
+      },
+      {
+        "name": "RECIPEH",
+        "number": 1337,
+        "aliases": [
+          "81289",
+          "1337 RECIPEH"
+        ],
+        "epg_ids": [
+          "81289"
+        ]
+      },
+      {
+        "name": "SMTHHD",
+        "number": 1370,
+        "aliases": [
+          "58532",
+          "1370 SMTHHD"
+        ],
+        "epg_ids": [
+          "58532"
+        ]
+      },
+      {
+        "name": "HDNETMV",
+        "number": 1375,
+        "aliases": [
+          "33668",
+          "1375 HDNETMV"
+        ],
+        "epg_ids": [
+          "33668"
+        ]
+      },
+      {
+        "name": "SZECLHD",
+        "number": 1379,
+        "aliases": [
+          "83404",
+          "1379 SZECLHD"
+        ],
+        "epg_ids": [
+          "83404"
+        ]
+      },
+      {
+        "name": "SZESUHD",
+        "number": 1381,
+        "aliases": [
+          "83076",
+          "1381 SZESUHD"
+        ],
+        "epg_ids": [
+          "83076"
+        ]
+      },
+      {
+        "name": "SZEAHD",
+        "number": 1382,
+        "aliases": [
+          "72015",
+          "1382 SZEAHD"
+        ],
+        "epg_ids": [
+          "72015"
+        ]
+      },
+      {
+        "name": "SZEBHD",
+        "number": 1383,
+        "aliases": [
+          "72014",
+          "1383 SZEBHD"
+        ],
+        "epg_ids": [
+          "72014"
+        ]
+      },
+      {
+        "name": "SZENHP",
+        "number": 1388,
+        "aliases": [
+          "67237",
+          "1388 SZENHP"
+        ],
+        "epg_ids": [
+          "67237"
+        ]
+      },
+      {
+        "name": "SETHHD",
+        "number": 1561,
+        "aliases": [
+          "79610",
+          "1561 SETHHD"
+        ],
+        "epg_ids": [
+          "79610"
+        ]
+      },
+      {
+        "name": "SNMIS",
+        "number": 2240,
+        "aliases": [
+          "153078",
+          "2240 SNMIS"
+        ],
+        "epg_ids": [
+          "153078"
+        ]
+      },
+      {
+        "name": "SNNOTLS",
+        "number": 2241,
+        "aliases": [
+          "174155",
+          "2241 SNNOTLS"
+        ],
+        "epg_ids": [
+          "174155"
+        ]
+      },
+      {
+        "name": "SNNOTFS",
+        "number": 2242,
+        "aliases": [
+          "174122",
+          "2242 SNNOTFS"
+        ],
+        "epg_ids": [
+          "174122"
+        ]
+      },
+      {
+        "name": "SNNOTTS",
+        "number": 2243,
+        "aliases": [
+          "174089",
+          "2243 SNNOTTS"
+        ],
+        "epg_ids": [
+          "174089"
+        ]
+      },
+      {
+        "name": "SNALS",
+        "number": 2244,
+        "aliases": [
+          "178586",
+          "2244 SNALS"
+        ],
+        "epg_ids": [
+          "178586"
+        ]
+      },
+      {
+        "name": "SNGAS",
+        "number": 2245,
+        "aliases": [
+          "178588",
+          "2245 SNGAS"
+        ],
+        "epg_ids": [
+          "178588"
+        ]
+      }
+    ],
+    "Lifestyle": [
+      {
+        "name": "OWN",
+        "number": 24,
+        "aliases": [
+          "OWNHD",
+          "70387",
+          "70388",
+          "24 OWN"
+        ],
+        "epg_ids": [
+          "70387",
+          "70388"
+        ]
+      },
+      {
+        "name": "Discovery Channel",
+        "number": 34,
+        "aliases": [
+          "DSC",
+          "DISC",
+          "DSCHD",
+          "11150",
+          "56905",
+          "34 DSC"
+        ],
+        "epg_ids": [
+          "11150",
+          "56905"
+        ]
+      },
+      {
+        "name": "Animal Planet",
+        "number": 35,
+        "aliases": [
+          "APL",
+          "ANPL",
+          "APLHD",
+          "16331",
+          "57394",
+          "35 APL"
+        ],
+        "epg_ids": [
+          "16331",
+          "57394"
+        ]
+      },
+      {
+        "name": "Lifetime",
+        "number": 38,
+        "aliases": [
+          "LIFE",
+          "LIFEHD",
+          "10918",
+          "60150",
+          "38 LIFE"
+        ],
+        "epg_ids": [
+          "10918",
+          "60150"
+        ]
+      },
+      {
+        "name": "Oxygen",
+        "number": 44,
+        "aliases": [
+          "OXYGEN",
+          "OXY",
+          "21484",
+          "44 OXYGEN"
+        ],
+        "epg_ids": [
+          "21484"
+        ]
+      },
+      {
+        "name": "TLC",
+        "number": 46,
+        "aliases": [
+          "TLCHD",
+          "11158",
+          "57391",
+          "46 TLC"
+        ],
+        "epg_ids": [
+          "11158",
+          "57391"
+        ]
+      },
+      {
+        "name": "Lifetime Movie Network",
+        "number": 50,
+        "aliases": [
+          "LMN",
+          "LMNHD",
+          "18480",
+          "55887",
+          "50 LMN"
+        ],
+        "epg_ids": [
+          "18480",
+          "55887"
+        ]
+      },
+      {
+        "name": "BRAVO",
+        "number": 51,
+        "aliases": [
+          "BRAVOHD",
+          "Bravo",
+          "10057",
+          "58625",
+          "51 BRAVO"
+        ],
+        "epg_ids": [
+          "10057",
+          "58625"
+        ]
+      },
+      {
+        "name": "History",
+        "number": 54,
+        "aliases": [
+          "HISTORY",
+          "HIST",
+          "14771",
+          "54 HISTORY"
+        ],
+        "epg_ids": [
+          "14771"
+        ]
+      },
+      {
+        "name": "FOOD",
+        "number": 56,
+        "aliases": [
+          "FOODHD",
+          "12574",
+          "50747",
+          "56 FOOD"
+        ],
+        "epg_ids": [
+          "12574",
+          "50747"
+        ]
+      },
+      {
+        "name": "HGTV",
+        "number": 57,
+        "aliases": [
+          "14902",
+          "57 HGTV"
+        ],
+        "epg_ids": [
+          "14902"
+        ]
+      },
+      {
+        "name": "National Geographic",
+        "number": 65,
+        "aliases": [
+          "NGC",
+          "NGCHD",
+          "24959",
+          "49438",
+          "65 NGC"
+        ],
+        "epg_ids": [
+          "24959",
+          "49438"
+        ]
+      },
+      {
+        "name": "Hallmark Channel",
+        "number": 68,
+        "aliases": [
+          "HALL",
+          "HALLHD",
+          "11221",
+          "66268",
+          "68 HALL"
+        ],
+        "epg_ids": [
+          "11221",
+          "66268"
+        ]
+      },
+      {
+        "name": "Travel Channel",
+        "number": 90,
+        "aliases": [
+          "TRAV",
+          "TRAVEL",
+          "11180",
+          "90 TRAV"
+        ],
+        "epg_ids": [
+          "11180"
+        ]
+      },
+      {
+        "name": "RFD-TV",
+        "number": 98,
+        "aliases": [
+          "RFDTV",
+          "RFD",
+          "25148",
+          "98 RFDTV"
+        ],
+        "epg_ids": [
+          "25148"
+        ]
+      },
+      {
+        "name": "Science Channel",
+        "number": 100,
+        "aliases": [
+          "SCIENCE",
+          "SCI",
+          "16616",
+          "100 SCIENCE"
+        ],
+        "epg_ids": [
+          "16616"
+        ]
+      },
+      {
+        "name": "American Heroes Channel",
+        "number": 103,
+        "aliases": [
+          "AHC",
+          "AHCHD",
+          "18284",
+          "78808",
+          "103 AHC"
+        ],
+        "epg_ids": [
+          "18284",
+          "78808"
+        ]
+      },
+      {
+        "name": "FYI",
+        "number": 104,
+        "aliases": [
+          "FYISD",
+          "FYIHD",
+          "16834",
+          "58988",
+          "104 FYISD"
+        ],
+        "epg_ids": [
+          "16834",
+          "58988"
+        ]
+      },
+      {
+        "name": "Destination America",
+        "number": 108,
+        "aliases": [
+          "DEST",
+          "DESTHD",
+          "16617",
+          "60468",
+          "108 DEST"
+        ],
+        "epg_ids": [
+          "16617",
+          "60468"
+        ]
+      },
+      {
+        "name": "Discovery Life",
+        "number": 114,
+        "aliases": [
+          "DLC",
+          "DLCHD",
+          "16125",
+          "92204",
+          "114 DLC"
+        ],
+        "epg_ids": [
+          "16125",
+          "92204"
+        ]
+      },
+      {
+        "name": "Investigation Discovery",
+        "number": 135,
+        "aliases": [
+          "ID",
+          "16615",
+          "135 ID"
+        ],
+        "epg_ids": [
+          "16615"
+        ]
+      },
+      {
+        "name": "Magnolia Network",
+        "number": 136,
+        "aliases": [
+          "MAGN",
+          "MAGNHD",
+          "18544",
+          "67375",
+          "136 MAGN"
+        ],
+        "epg_ids": [
+          "18544",
+          "67375"
+        ]
+      },
+      {
+        "name": "Cooking Channel",
+        "number": 142,
+        "aliases": [
+          "COOK",
+          "COOKHD",
+          "30156",
+          "68065",
+          "142 COOK"
+        ],
+        "epg_ids": [
+          "30156",
+          "68065"
+        ]
+      },
+      {
+        "name": "Ovation",
+        "number": 164,
+        "aliases": [
+          "OVATION",
+          "OVA",
+          "15807",
+          "164 OVATION"
+        ],
+        "epg_ids": [
+          "15807"
+        ]
+      },
+      {
+        "name": "Smithsonian Channel",
+        "number": 370,
+        "aliases": [
+          "SMITH",
+          "65799",
+          "370 SMITH"
+        ],
+        "epg_ids": [
+          "65799"
+        ]
+      },
+      {
+        "name": "History",
+        "number": 1242,
+        "aliases": [
+          "HSTRYHD",
+          "57708",
+          "1242 HSTRYHD"
+        ],
+        "epg_ids": [
+          "57708"
+        ]
+      },
+      {
+        "name": "Investigation Discovery",
+        "number": 1246,
+        "aliases": [
+          "IDHD",
+          "65342",
+          "1246 IDHD"
+        ],
+        "epg_ids": [
+          "65342"
+        ]
+      },
+      {
+        "name": "HGTVD",
+        "number": 1250,
+        "aliases": [
+          "49788",
+          "1250 HGTVD"
+        ],
+        "epg_ids": [
+          "49788"
+        ]
+      },
+      {
+        "name": "Science Channel",
+        "number": 1265,
+        "aliases": [
+          "SCIHD",
+          "57390",
+          "1265 SCIHD"
+        ],
+        "epg_ids": [
+          "57390"
+        ]
+      },
+      {
+        "name": "OXYGNHD",
+        "number": 1271,
+        "aliases": [
+          "70522",
+          "1271 OXYGNHD"
+        ],
+        "epg_ids": [
+          "70522"
+        ]
+      },
+      {
+        "name": "RFDHD",
+        "number": 1305,
+        "aliases": [
+          "63717",
+          "1305 RFDHD"
+        ],
+        "epg_ids": [
+          "63717"
+        ]
+      }
+    ],
+    "Movies": [
+      {
+        "name": "TCM",
+        "number": 53,
+        "aliases": [
+          "TCMHD",
+          "12852",
+          "64312",
+          "53 TCM"
+        ],
+        "epg_ids": [
+          "12852",
+          "64312"
+        ]
+      },
+      {
+        "name": "AMC",
+        "number": 64,
+        "aliases": [
+          "AMCHD",
+          "10021",
+          "59337",
+          "64 AMC"
+        ],
+        "epg_ids": [
+          "10021",
+          "59337"
+        ]
+      },
+      {
+        "name": "REELZ",
+        "number": 354,
+        "aliases": [
+          "REELZHD",
+          "52199",
+          "68385",
+          "354 REELZ"
+        ],
+        "epg_ids": [
+          "52199",
+          "68385"
+        ]
+      },
+      {
+        "name": "SundanceTV",
+        "number": 374,
+        "aliases": [
+          "SUNDANC",
+          "16108",
+          "374 SUNDANC"
+        ],
+        "epg_ids": [
+          "16108"
+        ]
+      },
+      {
+        "name": "IFC",
+        "number": 384,
+        "aliases": [
+          "IFCHD",
+          "14873",
+          "59444",
+          "384 IFC"
+        ],
+        "epg_ids": [
+          "14873",
+          "59444"
+        ]
+      },
+      {
+        "name": "Hallmark Mystery",
+        "number": 385,
+        "aliases": [
+          "HMYS",
+          "HMYSHD",
+          "61522",
+          "46710",
+          "385 HMYS"
+        ],
+        "epg_ids": [
+          "61522",
+          "46710"
+        ]
+      },
+      {
+        "name": "SUNDHD",
+        "number": 1356,
+        "aliases": [
+          "71280",
+          "1356 SUNDHD"
+        ],
+        "epg_ids": [
+          "71280"
+        ]
+      },
+      {
+        "name": "FXMHD",
+        "number": 1389,
+        "aliases": [
+          "70253",
+          "1389 FXMHD"
+        ],
+        "epg_ids": [
+          "70253"
+        ]
+      }
+    ],
+    "Kids": [
+      {
+        "name": "Nickelodeon",
+        "number": 36,
+        "aliases": [
+          "NIK",
+          "NICK",
+          "NIKHD",
+          "11006",
+          "59432",
+          "36 NIK"
+        ],
+        "epg_ids": [
+          "11006",
+          "59432"
+        ]
+      },
+      {
+        "name": "DISN",
+        "number": 40,
+        "aliases": [
+          "DISNHD",
+          "10171",
+          "59684",
+          "40 DISN"
+        ],
+        "epg_ids": [
+          "10171",
+          "59684"
+        ]
+      },
+      {
+        "name": "TOON",
+        "number": 58,
+        "aliases": [
+          "TOONHD",
+          "12131",
+          "60048",
+          "58 TOON"
+        ],
+        "epg_ids": [
+          "12131",
+          "60048"
+        ]
+      },
+      {
+        "name": "Boomerang",
+        "number": 124,
+        "aliases": [
+          "BOOM",
+          "21883",
+          "124 BOOM"
+        ],
+        "epg_ids": [
+          "21883"
+        ]
+      },
+      {
+        "name": "Nick Jr.",
+        "number": 125,
+        "aliases": [
+          "NICJR",
+          "NICKJ",
+          "NICJRHD",
+          "19211",
+          "82649",
+          "125 NICJR"
+        ],
+        "epg_ids": [
+          "19211",
+          "82649"
+        ]
+      },
+      {
+        "name": "TeenNick",
+        "number": 140,
+        "aliases": [
+          "TNCK",
+          "TNICK",
+          "TNCKHD",
+          "59036",
+          "97047",
+          "140 TNCK"
+        ],
+        "epg_ids": [
+          "59036",
+          "97047"
+        ]
+      },
+      {
+        "name": "Nicktoons",
+        "number": 144,
+        "aliases": [
+          "NIKTON",
+          "30420",
+          "144 NIKTON"
+        ],
+        "epg_ids": [
+          "30420"
+        ]
+      },
+      {
+        "name": "BabyFirst",
+        "number": 174,
+        "aliases": [
+          "BABY1",
+          "50338",
+          "174 BABY1"
+        ],
+        "epg_ids": [
+          "50338"
+        ]
+      },
+      {
+        "name": "DJCHHD",
+        "number": 1106,
+        "aliases": [
+          "74885",
+          "1106 DJCHHD"
+        ],
+        "epg_ids": [
+          "74885"
+        ]
+      },
+      {
+        "name": "DXDHD",
+        "number": 1107,
+        "aliases": [
+          "60006",
+          "1107 DXDHD"
+        ],
+        "epg_ids": [
+          "60006"
+        ]
+      },
+      {
+        "name": "NIKTNHD",
+        "number": 1111,
+        "aliases": [
+          "82654",
+          "1111 NIKTNHD"
+        ],
+        "epg_ids": [
+          "82654"
+        ]
+      }
+    ],
+    "Premium": [
+      {
+        "name": "HBO",
+        "number": 201,
+        "aliases": [
+          "HBOHD",
+          "10240",
+          "19548",
+          "201 HBO"
+        ],
+        "epg_ids": [
+          "10240",
+          "19548"
+        ]
+      },
+      {
+        "name": "HBOHIT",
+        "number": 202,
+        "aliases": [
+          "HBOHTS",
+          "10241",
+          "202 HBOHTS"
+        ],
+        "epg_ids": [
+          "10241"
+        ]
+      },
+      {
+        "name": "HBODRMA",
+        "number": 203,
+        "aliases": [
+          "10243",
+          "203 HBODRMA"
+        ],
+        "epg_ids": [
+          "10243"
+        ]
+      },
+      {
+        "name": "HBOC",
+        "number": 205,
+        "aliases": [
+          "HBOCHD",
+          "18429",
+          "59839",
+          "205 HBOC"
+        ],
+        "epg_ids": [
+          "18429",
+          "59839"
+        ]
+      },
+      {
+        "name": "HBOMOV",
+        "number": 206,
+        "aliases": [
+          "18431",
+          "206 HBOMOV"
+        ],
+        "epg_ids": [
+          "18431"
+        ]
+      },
+      {
+        "name": "HBOP",
+        "number": 208,
+        "aliases": [
+          "10244",
+          "208 HBOP"
+        ],
+        "epg_ids": [
+          "10244"
+        ]
+      },
+      {
+        "name": "HBOHTP",
+        "number": 209,
+        "aliases": [
+          "10242",
+          "209 HBOHTP"
+        ],
+        "epg_ids": [
+          "10242"
+        ]
+      },
+      {
+        "name": "HBODRP",
+        "number": 210,
+        "aliases": [
+          "16576",
+          "210 HBODRP"
+        ],
+        "epg_ids": [
+          "16576"
+        ]
+      },
+      {
+        "name": "HBOCP",
+        "number": 212,
+        "aliases": [
+          "18430",
+          "212 HBOCP"
+        ],
+        "epg_ids": [
+          "18430"
+        ]
+      },
+      {
+        "name": "HBOMVP",
+        "number": 213,
+        "aliases": [
+          "18432",
+          "213 HBOMVP"
+        ],
+        "epg_ids": [
+          "18432"
+        ]
+      },
+      {
+        "name": "Cinemax",
+        "number": 221,
+        "aliases": [
+          "MAX",
+          "MAX1",
+          "MAXHD",
+          "10120",
+          "34933",
+          "221 MAX"
+        ],
+        "epg_ids": [
+          "10120",
+          "34933"
+        ]
+      },
+      {
+        "name": "CINEHIT",
+        "number": 222,
+        "aliases": [
+          "10121",
+          "222 CINEHIT"
+        ],
+        "epg_ids": [
+          "10121"
+        ]
+      },
+      {
+        "name": "CINACT",
+        "number": 223,
+        "aliases": [
+          "18433",
+          "223 CINACT"
+        ],
+        "epg_ids": [
+          "18433"
+        ]
+      },
+      {
+        "name": "CINECLS",
+        "number": 227,
+        "aliases": [
+          "25620",
+          "227 CINECLS"
+        ],
+        "epg_ids": [
+          "25620"
+        ]
+      },
+      {
+        "name": "MAXP",
+        "number": 229,
+        "aliases": [
+          "12508",
+          "229 MAXP"
+        ],
+        "epg_ids": [
+          "12508"
+        ]
+      },
+      {
+        "name": "CINEHP",
+        "number": 230,
+        "aliases": [
+          "16620",
+          "230 CINEHP"
+        ],
+        "epg_ids": [
+          "16620"
+        ]
+      },
+      {
+        "name": "CINACSP",
+        "number": 231,
+        "aliases": [
+          "18434",
+          "231 CINACSP"
+        ],
+        "epg_ids": [
+          "18434"
+        ]
+      },
+      {
+        "name": "Paramount+ with SHOWTIME",
+        "number": 241,
+        "aliases": [
+          "PARSHO",
+          "11115",
+          "241 PARSHO"
+        ],
+        "epg_ids": [
+          "11115"
+        ]
+      },
+      {
+        "name": "SHO2",
+        "number": 242,
+        "aliases": [
+          "SHO2HD",
+          "11116",
+          "58533",
+          "242 SHO2"
+        ],
+        "epg_ids": [
+          "11116",
+          "58533"
+        ]
+      },
+      {
+        "name": "SHOCSE",
+        "number": 243,
+        "aliases": [
+          "16153",
+          "243 SHOCSE"
+        ],
+        "epg_ids": [
+          "16153"
+        ]
+      },
+      {
+        "name": "WOMEN",
+        "number": 244,
+        "aliases": [
+          "WOMENHD",
+          "WOMEN-TV",
+          "25272",
+          "68338",
+          "244 WOMEN"
+        ],
+        "epg_ids": [
+          "25272",
+          "68338"
+        ]
+      },
+      {
+        "name": "SHOBET",
+        "number": 245,
+        "aliases": [
+          "20622",
+          "245 SHOBET"
+        ],
+        "epg_ids": [
+          "20622"
+        ]
+      },
+      {
+        "name": "NEXT",
+        "number": 246,
+        "aliases": [
+          "NEXTHD",
+          "25270",
+          "68342",
+          "246 NEXT"
+        ],
+        "epg_ids": [
+          "25270",
+          "68342"
+        ]
+      },
+      {
+        "name": "SHOWX",
+        "number": 247,
+        "aliases": [
+          "SHOWXHD",
+          "18086",
+          "60947",
+          "247 SHOWX"
+        ],
+        "epg_ids": [
+          "18086",
+          "60947"
+        ]
+      },
+      {
+        "name": "FAMZ",
+        "number": 248,
+        "aliases": [
+          "25274",
+          "248 FAMZ"
+        ],
+        "epg_ids": [
+          "25274"
+        ]
+      },
+      {
+        "name": "PARSHOW",
+        "number": 249,
+        "aliases": [
+          "11117",
+          "249 PARSHOW"
+        ],
+        "epg_ids": [
+          "11117"
+        ]
+      },
+      {
+        "name": "SHO2P",
+        "number": 250,
+        "aliases": [
+          "16444",
+          "250 SHO2P"
+        ],
+        "epg_ids": [
+          "16444"
+        ]
+      },
+      {
+        "name": "SHOCSEP",
+        "number": 251,
+        "aliases": [
+          "16584",
+          "251 SHOCSEP"
+        ],
+        "epg_ids": [
+          "16584"
+        ]
+      },
+      {
+        "name": "WOMENP",
+        "number": 252,
+        "aliases": [
+          "WOMENP-TV",
+          "25273",
+          "252 WOMENP"
+        ],
+        "epg_ids": [
+          "25273"
+        ]
+      },
+      {
+        "name": "SHOBETP",
+        "number": 253,
+        "aliases": [
+          "20625",
+          "253 SHOBETP"
+        ],
+        "epg_ids": [
+          "20625"
+        ]
+      },
+      {
+        "name": "NEXTP",
+        "number": 254,
+        "aliases": [
+          "25271",
+          "254 NEXTP"
+        ],
+        "epg_ids": [
+          "25271"
+        ]
+      },
+      {
+        "name": "SHOWXP",
+        "number": 255,
+        "aliases": [
+          "18164",
+          "255 SHOWXP"
+        ],
+        "epg_ids": [
+          "18164"
+        ]
+      },
+      {
+        "name": "FAMZP",
+        "number": 256,
+        "aliases": [
+          "25275",
+          "256 FAMZP"
+        ],
+        "epg_ids": [
+          "25275"
+        ]
+      },
+      {
+        "name": "The Movie Channel",
+        "number": 261,
+        "aliases": [
+          "TMC",
+          "TMCHD",
+          "11160",
+          "35329",
+          "261 TMC"
+        ],
+        "epg_ids": [
+          "11160",
+          "35329"
+        ]
+      },
+      {
+        "name": "TMCX",
+        "number": 262,
+        "aliases": [
+          "TMCXHD",
+          "17663",
+          "60951",
+          "262 TMCX"
+        ],
+        "epg_ids": [
+          "17663",
+          "60951"
+        ]
+      },
+      {
+        "name": "TMCP",
+        "number": 263,
+        "aliases": [
+          "12509",
+          "263 TMCP"
+        ],
+        "epg_ids": [
+          "12509"
+        ]
+      },
+      {
+        "name": "TMCX",
+        "number": 264,
+        "aliases": [
+          "TMCXP",
+          "TMCXPHD",
+          "17687",
+          "60949",
+          "264 TMCXP"
+        ],
+        "epg_ids": [
+          "17687",
+          "60949"
+        ]
+      },
+      {
+        "name": "STARZ",
+        "number": 271,
+        "aliases": [
+          "12719",
+          "271 STARZ"
+        ],
+        "epg_ids": [
+          "12719"
+        ]
+      },
+      {
+        "name": "STZE",
+        "number": 272,
+        "aliases": [
+          "STZEHD",
+          "16311",
+          "57573",
+          "272 STZE"
+        ],
+        "epg_ids": [
+          "16311",
+          "57573"
+        ]
+      },
+      {
+        "name": "STZIB",
+        "number": 273,
+        "aliases": [
+          "16833",
+          "273 STZIB"
+        ],
+        "epg_ids": [
+          "16833"
+        ]
+      },
+      {
+        "name": "SRZK",
+        "number": 274,
+        "aliases": [
+          "STZK",
+          "STZKHD",
+          "19635",
+          "57581",
+          "274 STZK"
+        ],
+        "epg_ids": [
+          "19635",
+          "57581"
+        ]
+      },
+      {
+        "name": "STZCI",
+        "number": 275,
+        "aliases": [
+          "19634",
+          "275 STZCI"
+        ],
+        "epg_ids": [
+          "19634"
+        ]
+      },
+      {
+        "name": "SRZC",
+        "number": 276,
+        "aliases": [
+          "STZC",
+          "STZCHD",
+          "34901",
+          "57569",
+          "276 STZC"
+        ],
+        "epg_ids": [
+          "34901",
+          "57569"
+        ]
+      },
+      {
+        "name": "MGM+",
+        "number": 364,
+        "aliases": [
+          "MGM",
+          "MGMHD",
+          "65669",
+          "65687",
+          "364 MGM"
+        ],
+        "epg_ids": [
+          "65669",
+          "65687"
+        ]
+      },
+      {
+        "name": "MGMHIT",
+        "number": 365,
+        "aliases": [
+          "73075",
+          "365 MGMHIT"
+        ],
+        "epg_ids": [
+          "73075"
+        ]
+      },
+      {
+        "name": "MGM+ Drive-In",
+        "number": 367,
+        "aliases": [
+          "MGMDRV",
+          "68409",
+          "367 MGMDRV"
+        ],
+        "epg_ids": [
+          "68409"
+        ]
+      },
+      {
+        "name": "Flix",
+        "number": 371,
+        "aliases": [
+          "FLIX",
+          "10201",
+          "371 FLIX"
+        ],
+        "epg_ids": [
+          "10201"
+        ]
+      },
+      {
+        "name": "FLIXP",
+        "number": 372,
+        "aliases": [
+          "16575",
+          "372 FLIXP"
+        ],
+        "epg_ids": [
+          "16575"
+        ]
+      },
+      {
+        "name": "STZENC",
+        "number": 377,
+        "aliases": [
+          "10178",
+          "377 STZENC"
+        ],
+        "epg_ids": [
+          "10178"
+        ]
+      },
+      {
+        "name": "STZEFM",
+        "number": 378,
+        "aliases": [
+          "STZENFS",
+          "102903",
+          "378 STZENFS"
+        ],
+        "epg_ids": [
+          "102903"
+        ]
+      },
+      {
+        "name": "STZECL",
+        "number": 379,
+        "aliases": [
+          "STZENCL",
+          "14764",
+          "379 STZENCL"
+        ],
+        "epg_ids": [
+          "14764"
+        ]
+      },
+      {
+        "name": "STZEWSS",
+        "number": 380,
+        "aliases": [
+          "102906",
+          "380 STZEWSS"
+        ],
+        "epg_ids": [
+          "102906"
+        ]
+      },
+      {
+        "name": "STZESU",
+        "number": 381,
+        "aliases": [
+          "STZENSU",
+          "14766",
+          "381 STZENSU"
+        ],
+        "epg_ids": [
+          "14766"
+        ]
+      },
+      {
+        "name": "STZEAC",
+        "number": 382,
+        "aliases": [
+          "STZENAC",
+          "14871",
+          "382 STZENAC"
+        ],
+        "epg_ids": [
+          "14871"
+        ]
+      },
+      {
+        "name": "STZEBK",
+        "number": 383,
+        "aliases": [
+          "STZENBK",
+          "14870",
+          "383 STZENBK"
+        ],
+        "epg_ids": [
+          "14870"
+        ]
+      },
+      {
+        "name": "RetroPlex",
+        "number": 386,
+        "aliases": [
+          "RETRO",
+          "RETROHD",
+          "49767",
+          "65791",
+          "386 RETRO"
+        ],
+        "epg_ids": [
+          "49767",
+          "65791"
+        ]
+      },
+      {
+        "name": "IndiePlex",
+        "number": 387,
+        "aliases": [
+          "INDIE",
+          "INDIE-E",
+          "INDIEHD",
+          "49751",
+          "65795",
+          "387 INDIE"
+        ],
+        "epg_ids": [
+          "49751",
+          "65795"
+        ]
+      },
+      {
+        "name": "STZENCP",
+        "number": 388,
+        "aliases": [
+          "17125",
+          "388 STZENCP"
+        ],
+        "epg_ids": [
+          "17125"
+        ]
+      },
+      {
+        "name": "STZENFP",
+        "number": 389,
+        "aliases": [
+          "17131",
+          "389 STZENFP"
+        ],
+        "epg_ids": [
+          "17131"
+        ]
+      },
+      {
+        "name": "STZESP",
+        "number": 390,
+        "aliases": [
+          "72016",
+          "390 STZESP"
+        ],
+        "epg_ids": [
+          "72016"
+        ]
+      },
+      {
+        "name": "MoviePlex",
+        "number": 391,
+        "aliases": [
+          "MPLEX",
+          "PLEX",
+          "MPLEXHD",
+          "15295",
+          "83075",
+          "391 MPLEX"
+        ],
+        "epg_ids": [
+          "15295",
+          "83075"
+        ]
+      },
+      {
+        "name": "MGMHTH",
+        "number": 1365,
+        "aliases": [
+          "67929",
+          "1365 MGMHTH"
+        ],
+        "epg_ids": [
+          "67929"
+        ]
+      },
+      {
+        "name": "MGMMRHD",
+        "number": 1366,
+        "aliases": [
+          "74073",
+          "1366 MGMMRHD"
+        ],
+        "epg_ids": [
+          "74073"
+        ]
+      },
+      {
+        "name": "STZENHD",
+        "number": 1377,
+        "aliases": [
+          "36225",
+          "1377 STZENHD"
+        ],
+        "epg_ids": [
+          "36225"
+        ]
+      },
+      {
+        "name": "HBOHTHD",
+        "number": 1402,
+        "aliases": [
+          "59368",
+          "1402 HBOHTHD"
+        ],
+        "epg_ids": [
+          "59368"
+        ]
+      },
+      {
+        "name": "HBODRHD",
+        "number": 1403,
+        "aliases": [
+          "59363",
+          "1403 HBODRHD"
+        ],
+        "epg_ids": [
+          "59363"
+        ]
+      },
+      {
+        "name": "HBOMVHD",
+        "number": 1406,
+        "aliases": [
+          "59845",
+          "1406 HBOMVHD"
+        ],
+        "epg_ids": [
+          "59845"
+        ]
+      },
+      {
+        "name": "HBOHDP",
+        "number": 1408,
+        "aliases": [
+          "19566",
+          "1408 HBOHDP"
+        ],
+        "epg_ids": [
+          "19566"
+        ]
+      },
+      {
+        "name": "CINEHHD",
+        "number": 1422,
+        "aliases": [
+          "59373",
+          "1422 CINEHHD"
+        ],
+        "epg_ids": [
+          "59373"
+        ]
+      },
+      {
+        "name": "CINACHD",
+        "number": 1423,
+        "aliases": [
+          "59948",
+          "1423 CINACHD"
+        ],
+        "epg_ids": [
+          "59948"
+        ]
+      },
+      {
+        "name": "CINCLHD",
+        "number": 1427,
+        "aliases": [
+          "59961",
+          "1427 CINCLHD"
+        ],
+        "epg_ids": [
+          "59961"
+        ]
+      },
+      {
+        "name": "MAXHDP",
+        "number": 1429,
+        "aliases": [
+          "35975",
+          "1429 MAXHDP"
+        ],
+        "epg_ids": [
+          "35975"
+        ]
+      },
+      {
+        "name": "PARSHOH",
+        "number": 1441,
+        "aliases": [
+          "21868",
+          "1441 PARSHOH"
+        ],
+        "epg_ids": [
+          "21868"
+        ]
+      },
+      {
+        "name": "SHOCSHD",
+        "number": 1443,
+        "aliases": [
+          "61001",
+          "1443 SHOCSHD"
+        ],
+        "epg_ids": [
+          "61001"
+        ]
+      },
+      {
+        "name": "SHOBETH",
+        "number": 1445,
+        "aliases": [
+          "68340",
+          "1445 SHOBETH"
+        ],
+        "epg_ids": [
+          "68340"
+        ]
+      },
+      {
+        "name": "PASHOHW",
+        "number": 1449,
+        "aliases": [
+          "22532",
+          "1449 PASHOHW"
+        ],
+        "epg_ids": [
+          "22532"
+        ]
+      },
+      {
+        "name": "STARZ",
+        "number": 1466,
+        "aliases": [
+          "STZHD",
+          "34941",
+          "1466 STZHD"
+        ],
+        "epg_ids": [
+          "34941"
+        ]
+      },
+      {
+        "name": "STRZIBH",
+        "number": 1469,
+        "aliases": [
+          "67235",
+          "1469 STRZIBH"
+        ],
+        "epg_ids": [
+          "67235"
+        ]
+      },
+      {
+        "name": "STRZCIH",
+        "number": 1471,
+        "aliases": [
+          "67236",
+          "1471 STRZCIH"
+        ],
+        "epg_ids": [
+          "67236"
+        ]
+      }
+    ],
+    "Music": [
+      {
+        "name": "MC",
+        "number": 400,
+        "aliases": [
+          "MC01",
+          "19313",
+          "400 MC01"
+        ],
+        "epg_ids": [
+          "19313"
+        ]
+      },
+      {
+        "name": "MC02",
+        "number": 401,
+        "aliases": [
+          "19346",
+          "401 MC02"
+        ],
+        "epg_ids": [
+          "19346"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 402,
+        "aliases": [
+          "MC03",
+          "76302",
+          "402 MC03"
+        ],
+        "epg_ids": [
+          "76302"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 403,
+        "aliases": [
+          "MC04",
+          "19332",
+          "403 MC04"
+        ],
+        "epg_ids": [
+          "19332"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 404,
+        "aliases": [
+          "MC05",
+          "26230",
+          "404 MC05"
+        ],
+        "epg_ids": [
+          "26230"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 405,
+        "aliases": [
+          "MC06",
+          "24378",
+          "405 MC06"
+        ],
+        "epg_ids": [
+          "24378"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 406,
+        "aliases": [
+          "MC07",
+          "19339",
+          "406 MC07"
+        ],
+        "epg_ids": [
+          "19339"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 407,
+        "aliases": [
+          "MC08",
+          "26232",
+          "407 MC08"
+        ],
+        "epg_ids": [
+          "26232"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 408,
+        "aliases": [
+          "MC09",
+          "19344",
+          "408 MC09"
+        ],
+        "epg_ids": [
+          "19344"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 409,
+        "aliases": [
+          "MC10",
+          "26250",
+          "409 MC10"
+        ],
+        "epg_ids": [
+          "26250"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 410,
+        "aliases": [
+          "MC11",
+          "26229",
+          "410 MC11"
+        ],
+        "epg_ids": [
+          "26229"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 411,
+        "aliases": [
+          "MC12",
+          "26221",
+          "411 MC12"
+        ],
+        "epg_ids": [
+          "26221"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 412,
+        "aliases": [
+          "MC13",
+          "19312",
+          "412 MC13"
+        ],
+        "epg_ids": [
+          "19312"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 413,
+        "aliases": [
+          "MC14",
+          "31030",
+          "413 MC14"
+        ],
+        "epg_ids": [
+          "31030"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 414,
+        "aliases": [
+          "MC15",
+          "19310",
+          "414 MC15"
+        ],
+        "epg_ids": [
+          "19310"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 415,
+        "aliases": [
+          "MC16",
+          "19142",
+          "415 MC16"
+        ],
+        "epg_ids": [
+          "19142"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 416,
+        "aliases": [
+          "MC17",
+          "31029",
+          "416 MC17"
+        ],
+        "epg_ids": [
+          "31029"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 417,
+        "aliases": [
+          "MC18",
+          "19311",
+          "417 MC18"
+        ],
+        "epg_ids": [
+          "19311"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 418,
+        "aliases": [
+          "MC19",
+          "19315",
+          "418 MC19"
+        ],
+        "epg_ids": [
+          "19315"
+        ]
+      },
+      {
+        "name": "MC20",
+        "number": 419,
+        "aliases": [
+          "19314",
+          "419 MC20"
+        ],
+        "epg_ids": [
+          "19314"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 420,
+        "aliases": [
+          "MC21",
+          "43335",
+          "420 MC21"
+        ],
+        "epg_ids": [
+          "43335"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 421,
+        "aliases": [
+          "MC22",
+          "19328",
+          "421 MC22"
+        ],
+        "epg_ids": [
+          "19328"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 422,
+        "aliases": [
+          "MC23",
+          "19327",
+          "422 MC23"
+        ],
+        "epg_ids": [
+          "19327"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 423,
+        "aliases": [
+          "MC24",
+          "19330",
+          "423 MC24"
+        ],
+        "epg_ids": [
+          "19330"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 424,
+        "aliases": [
+          "MC25",
+          "19329",
+          "424 MC25"
+        ],
+        "epg_ids": [
+          "19329"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 425,
+        "aliases": [
+          "MC26",
+          "26228",
+          "425 MC26"
+        ],
+        "epg_ids": [
+          "26228"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 426,
+        "aliases": [
+          "MC27",
+          "19336",
+          "426 MC27"
+        ],
+        "epg_ids": [
+          "19336"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 427,
+        "aliases": [
+          "MC28",
+          "24405",
+          "427 MC28"
+        ],
+        "epg_ids": [
+          "24405"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 428,
+        "aliases": [
+          "MC29",
+          "19326",
+          "428 MC29"
+        ],
+        "epg_ids": [
+          "19326"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 429,
+        "aliases": [
+          "MC30",
+          "44059",
+          "429 MC30"
+        ],
+        "epg_ids": [
+          "44059"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 430,
+        "aliases": [
+          "MC31",
+          "19325",
+          "430 MC31"
+        ],
+        "epg_ids": [
+          "19325"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 431,
+        "aliases": [
+          "MC32",
+          "26248",
+          "431 MC32"
+        ],
+        "epg_ids": [
+          "26248"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 432,
+        "aliases": [
+          "MC33",
+          "19342",
+          "432 MC33"
+        ],
+        "epg_ids": [
+          "19342"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 433,
+        "aliases": [
+          "MC34",
+          "19319",
+          "433 MC34"
+        ],
+        "epg_ids": [
+          "19319"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 434,
+        "aliases": [
+          "MC35",
+          "19324",
+          "434 MC35"
+        ],
+        "epg_ids": [
+          "19324"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 440,
+        "aliases": [
+          "MC41",
+          "19317",
+          "440 MC41"
+        ],
+        "epg_ids": [
+          "19317"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 441,
+        "aliases": [
+          "MC42",
+          "19358",
+          "441 MC42"
+        ],
+        "epg_ids": [
+          "19358"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 442,
+        "aliases": [
+          "MC43",
+          "31028",
+          "442 MC43"
+        ],
+        "epg_ids": [
+          "31028"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 443,
+        "aliases": [
+          "MC44",
+          "19362",
+          "443 MC44"
+        ],
+        "epg_ids": [
+          "19362"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 444,
+        "aliases": [
+          "MC45",
+          "19357",
+          "444 MC45"
+        ],
+        "epg_ids": [
+          "19357"
+        ]
+      },
+      {
+        "name": "MC46",
+        "number": 445,
+        "aliases": [
+          "19341",
+          "445 MC46"
+        ],
+        "epg_ids": [
+          "19341"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 446,
+        "aliases": [
+          "MC47",
+          "83184",
+          "446 MC47"
+        ],
+        "epg_ids": [
+          "83184"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 447,
+        "aliases": [
+          "MC48",
+          "83186",
+          "447 MC48"
+        ],
+        "epg_ids": [
+          "83186"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 448,
+        "aliases": [
+          "MC49",
+          "83194",
+          "448 MC49"
+        ],
+        "epg_ids": [
+          "83194"
+        ]
+      },
+      {
+        "name": "MC",
+        "number": 449,
+        "aliases": [
+          "MC50",
+          "83197",
+          "449 MC50"
+        ],
+        "epg_ids": [
+          "83197"
+        ]
+      },
+      {
+        "name": "MC36",
+        "number": 890,
+        "aliases": [
+          "24380",
+          "890 MC36"
+        ],
+        "epg_ids": [
+          "24380"
+        ]
+      },
+      {
+        "name": "MC37",
+        "number": 891,
+        "aliases": [
+          "24382",
+          "891 MC37"
+        ],
+        "epg_ids": [
+          "24382"
+        ]
+      },
+      {
+        "name": "MC38",
+        "number": 892,
+        "aliases": [
+          "19320",
+          "892 MC38"
+        ],
+        "epg_ids": [
+          "19320"
+        ]
+      },
+      {
+        "name": "MC39",
+        "number": 893,
+        "aliases": [
+          "19335",
+          "893 MC39"
+        ],
+        "epg_ids": [
+          "19335"
+        ]
+      },
+      {
+        "name": "MC40",
+        "number": 894,
+        "aliases": [
+          "19316",
+          "894 MC40"
+        ],
+        "epg_ids": [
+          "19316"
+        ]
+      }
+    ],
+    "Faith": [
+      {
+        "name": "EWTN",
+        "number": 111,
+        "aliases": [
+          "EWTNHD",
+          "10183",
+          "67164",
+          "111 EWTN"
+        ],
+        "epg_ids": [
+          "10183",
+          "67164"
+        ]
+      },
+      {
+        "name": "TBN",
+        "number": 131,
+        "aliases": [
+          "14767",
+          "131 TBN"
+        ],
+        "epg_ids": [
+          "14767"
+        ]
+      },
+      {
+        "name": "JLT",
+        "number": 172,
+        "aliases": [
+          "JLTV",
+          "60165",
+          "172 JLTV"
+        ],
+        "epg_ids": [
+          "60165"
+        ]
+      },
+      {
+        "name": "BYUtv",
+        "number": 197,
+        "aliases": [
+          "BYUTV",
+          "BYU",
+          "BYUTVHD",
+          "21855",
+          "71764",
+          "197 BYUTV"
+        ],
+        "epg_ids": [
+          "21855",
+          "71764"
+        ]
+      },
+      {
+        "name": "SonLife Broadcasting Network",
+        "number": 199,
+        "aliases": [
+          "SBND",
+          "SBN",
+          "67676",
+          "30324",
+          "199 SBND"
+        ],
+        "epg_ids": [
+          "67676",
+          "30324"
+        ]
+      },
+      {
+        "name": "JBS",
+        "number": 1223,
+        "aliases": [
+          "74978",
+          "1223 JBS"
+        ],
+        "epg_ids": [
+          "74978"
+        ]
+      }
+    ],
+    "Shopping": [
+      {
+        "name": "HSN",
+        "number": 101,
+        "aliases": [
+          "HSNHD",
+          "10269",
+          "62077",
+          "101 HSN"
+        ],
+        "epg_ids": [
+          "10269",
+          "62077"
+        ]
+      },
+      {
+        "name": "QVC",
+        "number": 130,
+        "aliases": [
+          "QVCHD",
+          "11069",
+          "60222",
+          "130 QVC"
+        ],
+        "epg_ids": [
+          "11069",
+          "60222"
+        ]
+      },
+      {
+        "name": "HSN2",
+        "number": 161,
+        "aliases": [
+          "10270",
+          "161 HSN2"
+        ],
+        "epg_ids": [
+          "10270"
+        ]
+      },
+      {
+        "name": "QVC2",
+        "number": 162,
+        "aliases": [
+          "QVC2HD",
+          "82682",
+          "82696",
+          "162 QVC2"
+        ],
+        "epg_ids": [
+          "82682",
+          "82696"
+        ]
+      },
+      {
+        "name": "GEMSSD",
+        "number": 184,
+        "aliases": [
+          "GEMSHD",
+          "26643",
+          "109264",
+          "184 GEMSSD"
+        ],
+        "epg_ids": [
+          "26643",
+          "109264"
+        ]
+      },
+      {
+        "name": "SHOPLC",
+        "number": 185,
+        "aliases": [
+          "56032",
+          "185 SHOPLC"
+        ],
+        "epg_ids": [
+          "56032"
+        ]
+      },
+      {
+        "name": "SHOPZ1",
+        "number": 186,
+        "aliases": [
+          "68756",
+          "186 SHOPZ1"
+        ],
+        "epg_ids": [
+          "68756"
+        ]
+      },
+      {
+        "name": "SHOPZ3",
+        "number": 188,
+        "aliases": [
+          "71524",
+          "188 SHOPZ3"
+        ],
+        "epg_ids": [
+          "71524"
+        ]
+      },
+      {
+        "name": "SHOPZ4",
+        "number": 189,
+        "aliases": [
+          "71511",
+          "189 SHOPZ4"
+        ],
+        "epg_ids": [
+          "71511"
+        ]
+      },
+      {
+        "name": "SHOPZ5",
+        "number": 190,
+        "aliases": [
+          "71503",
+          "190 SHOPZ5"
+        ],
+        "epg_ids": [
+          "71503"
+        ]
+      },
+      {
+        "name": "SHOPZ6",
+        "number": 191,
+        "aliases": [
+          "82423",
+          "191 SHOPZ6"
+        ],
+        "epg_ids": [
+          "82423"
+        ]
+      },
+      {
+        "name": "SHOPZ8",
+        "number": 193,
+        "aliases": [
+          "91086",
+          "193 SHOPZ8"
+        ],
+        "epg_ids": [
+          "91086"
+        ]
+      },
+      {
+        "name": "JTV",
+        "number": 1328,
+        "aliases": [
+          "JTVHD",
+          "65556",
+          "1328 JTVHD"
+        ],
+        "epg_ids": [
+          "65556"
+        ]
+      },
+      {
+        "name": "SHOPLCH",
+        "number": 1330,
+        "aliases": [
+          "93564",
+          "1330 SHOPLCH"
+        ],
+        "epg_ids": [
+          "93564"
+        ]
+      },
+      {
+        "name": "QVC3",
+        "number": 1332,
+        "aliases": [
+          "101260",
+          "1332 QVC3"
+        ],
+        "epg_ids": [
+          "101260"
+        ]
+      }
+    ],
+    "International": [
+      {
+        "name": "ART America",
+        "number": 501,
+        "aliases": [
+          "ARTAMER",
+          "19979",
+          "501 ARTAMER"
+        ],
+        "epg_ids": [
+          "19979"
+        ]
+      },
+      {
+        "name": "The Arabic Channel",
+        "number": 502,
+        "aliases": [
+          "ARABCH",
+          "23775",
+          "502 ARABCH"
+        ],
+        "epg_ids": [
+          "23775"
+        ]
+      },
+      {
+        "name": "SBN",
+        "number": 505,
+        "aliases": [
+          "30324",
+          "505 SBN"
+        ],
+        "epg_ids": [
+          "30324"
+        ]
+      },
+      {
+        "name": "TVBV",
+        "number": 506,
+        "aliases": [
+          "53070",
+          "506 TVBV"
+        ],
+        "epg_ids": [
+          "53070"
+        ]
+      },
+      {
+        "name": "RGTI",
+        "number": 510,
+        "aliases": [
+          "21065",
+          "510 RGTI"
+        ],
+        "epg_ids": [
+          "21065"
+        ]
+      },
+      {
+        "name": "RTP Internacional",
+        "number": 512,
+        "aliases": [
+          "RTPI",
+          "15717",
+          "512 RTPI"
+        ],
+        "epg_ids": [
+          "15717"
+        ]
+      },
+      {
+        "name": "TVB1",
+        "number": 515,
+        "aliases": [
+          "16333",
+          "515 TVB1"
+        ],
+        "epg_ids": [
+          "16333"
+        ]
+      },
+      {
+        "name": "TVBDC",
+        "number": 516,
+        "aliases": [
+          "32145",
+          "516 TVBDC"
+        ],
+        "epg_ids": [
+          "32145"
+        ]
+      },
+      {
+        "name": "TVBE",
+        "number": 517,
+        "aliases": [
+          "21187",
+          "517 TVBE"
+        ],
+        "epg_ids": [
+          "21187"
+        ]
+      },
+      {
+        "name": "TVBNW",
+        "number": 518,
+        "aliases": [
+          "32147",
+          "518 TVBNW"
+        ],
+        "epg_ids": [
+          "32147"
+        ]
+      },
+      {
+        "name": "FILPEHD",
+        "number": 520,
+        "aliases": [
+          "114048",
+          "520 FILPEHD"
+        ],
+        "epg_ids": [
+          "114048"
+        ]
+      },
+      {
+        "name": "GMAPNY",
+        "number": 521,
+        "aliases": [
+          "46463",
+          "521 GMAPNY"
+        ],
+        "epg_ids": [
+          "46463"
+        ]
+      },
+      {
+        "name": "GMALIFE",
+        "number": 522,
+        "aliases": [
+          "60152",
+          "522 GMALIFE"
+        ],
+        "epg_ids": [
+          "60152"
+        ]
+      },
+      {
+        "name": "LSNET",
+        "number": 523,
+        "aliases": [
+          "80214",
+          "523 LSNET"
+        ],
+        "epg_ids": [
+          "80214"
+        ]
+      },
+      {
+        "name": "DWLSRA",
+        "number": 524,
+        "aliases": [
+          "67374",
+          "524 DWLSRA"
+        ],
+        "epg_ids": [
+          "67374"
+        ]
+      },
+      {
+        "name": "DZBBRA",
+        "number": 525,
+        "aliases": [
+          "67373",
+          "525 DZBBRA"
+        ],
+        "epg_ids": [
+          "67373"
+        ]
+      },
+      {
+        "name": "RT",
+        "number": 530,
+        "aliases": [
+          "RTN",
+          "18424",
+          "530 RTN"
+        ],
+        "epg_ids": [
+          "18424"
+        ]
+      },
+      {
+        "name": "RUSKINO",
+        "number": 531,
+        "aliases": [
+          "61399",
+          "531 RUSKINO"
+        ],
+        "epg_ids": [
+          "61399"
+        ]
+      },
+      {
+        "name": "RTVi",
+        "number": 536,
+        "aliases": [
+          "RTVINT",
+          "21063",
+          "536 RTVINT"
+        ],
+        "epg_ids": [
+          "21063"
+        ]
+      },
+      {
+        "name": "ANTEN",
+        "number": 557,
+        "aliases": [
+          "16372",
+          "557 ANTEN"
+        ],
+        "epg_ids": [
+          "16372"
+        ]
+      },
+      {
+        "name": "ASIA",
+        "number": 560,
+        "aliases": [
+          "14763",
+          "560 ASIA"
+        ],
+        "epg_ids": [
+          "14763"
+        ]
+      },
+      {
+        "name": "Zee TV",
+        "number": 562,
+        "aliases": [
+          "ZEETVH",
+          "ZEE",
+          "77032",
+          "562 ZEETVH"
+        ],
+        "epg_ids": [
+          "77032"
+        ]
+      },
+      {
+        "name": "FILMY",
+        "number": 564,
+        "aliases": [
+          "52285",
+          "564 FILMY"
+        ],
+        "epg_ids": [
+          "52285"
+        ]
+      },
+      {
+        "name": "ABPN",
+        "number": 567,
+        "aliases": [
+          "ABPNWS",
+          "44851",
+          "567 ABPNWS"
+        ],
+        "epg_ids": [
+          "44851"
+        ]
+      },
+      {
+        "name": "ITVG",
+        "number": 569,
+        "aliases": [
+          "ITVGHD",
+          "21858",
+          "114663",
+          "569 ITVG"
+        ],
+        "epg_ids": [
+          "21858",
+          "114663"
+        ]
+      },
+      {
+        "name": "NDTV2",
+        "number": 570,
+        "aliases": [
+          "49172",
+          "570 NDTV2"
+        ],
+        "epg_ids": [
+          "49172"
+        ]
+      },
+      {
+        "name": "Rai Italia",
+        "number": 574,
+        "aliases": [
+          "RAII",
+          "17250",
+          "574 RAII"
+        ],
+        "epg_ids": [
+          "17250"
+        ]
+      },
+      {
+        "name": "MITALIA",
+        "number": 575,
+        "aliases": [
+          "69529",
+          "575 MITALIA"
+        ],
+        "epg_ids": [
+          "69529"
+        ]
+      },
+      {
+        "name": "TV5MONDE",
+        "number": 577,
+        "aliases": [
+          "TV5MOND",
+          "19059",
+          "577 TV5MOND"
+        ],
+        "epg_ids": [
+          "19059"
+        ]
+      },
+      {
+        "name": "TVK1",
+        "number": 580,
+        "aliases": [
+          "46384",
+          "580 TVK1"
+        ],
+        "epg_ids": [
+          "46384"
+        ]
+      },
+      {
+        "name": "TVK2",
+        "number": 581,
+        "aliases": [
+          "66157",
+          "581 TVK2"
+        ],
+        "epg_ids": [
+          "66157"
+        ]
+      },
+      {
+        "name": "KBS World",
+        "number": 583,
+        "aliases": [
+          "KBSAM",
+          "KBSAM-TV",
+          "34164",
+          "583 KBSAM"
+        ],
+        "epg_ids": [
+          "34164"
+        ]
+      },
+      {
+        "name": "MBCD",
+        "number": 584,
+        "aliases": [
+          "70622",
+          "584 MBCD"
+        ],
+        "epg_ids": [
+          "70622"
+        ]
+      },
+      {
+        "name": "CCTV-4",
+        "number": 590,
+        "aliases": [
+          "CCTV4",
+          "24248",
+          "590 CCTV4"
+        ],
+        "epg_ids": [
+          "24248"
+        ]
+      },
+      {
+        "name": "CITZTC",
+        "number": 591,
+        "aliases": [
+          "CTIZTC",
+          "20655",
+          "591 CTIZTC"
+        ],
+        "epg_ids": [
+          "20655"
+        ]
+      },
+      {
+        "name": "ETTV",
+        "number": 592,
+        "aliases": [
+          "57753",
+          "592 ETTV"
+        ],
+        "epg_ids": [
+          "57753"
+        ]
+      },
+      {
+        "name": "ETDRA",
+        "number": 593,
+        "aliases": [
+          "35271",
+          "593 ETDRA"
+        ],
+        "epg_ids": [
+          "35271"
+        ]
+      },
+      {
+        "name": "ETCHI",
+        "number": 594,
+        "aliases": [
+          "35272",
+          "594 ETCHI"
+        ],
+        "epg_ids": [
+          "35272"
+        ]
+      },
+      {
+        "name": "ETFINWS",
+        "number": 595,
+        "aliases": [
+          "66487",
+          "595 ETFINWS"
+        ],
+        "epg_ids": [
+          "66487"
+        ]
+      },
+      {
+        "name": "YOYO",
+        "number": 596,
+        "aliases": [
+          "35270",
+          "596 YOYO"
+        ],
+        "epg_ids": [
+          "35270"
+        ]
+      },
+      {
+        "name": "Phoenix InfoNews",
+        "number": 597,
+        "aliases": [
+          "PHNIN",
+          "44617",
+          "597 PHNIN"
+        ],
+        "epg_ids": [
+          "44617"
+        ]
+      },
+      {
+        "name": "PNAX",
+        "number": 598,
+        "aliases": [
+          "24935",
+          "598 PNAX"
+        ],
+        "epg_ids": [
+          "24935"
+        ]
+      }
+    ],
+    "Adult": [
+      {
+        "name": "PENTODT",
+        "number": 855,
+        "aliases": [
+          "74062",
+          "855 PENTODT"
+        ],
+        "epg_ids": [
+          "74062"
+        ]
+      }
+    ]
+  }
+}
